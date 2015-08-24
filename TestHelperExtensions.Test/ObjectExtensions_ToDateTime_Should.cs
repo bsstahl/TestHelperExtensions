@@ -16,6 +16,15 @@ namespace TestHelperExtensions.Test
         }
 
         [TestMethod]
+        public void ReturnMinDateIfTheValueIsNull()
+        {
+            DateTime expected = DateTime.MinValue;
+            object target = null;
+            var result = target.ToDateTime();
+            Assert.AreEqual(expected.ToSecondPrecision(), result.ToSecondPrecision());
+        }
+
+        [TestMethod]
         public void SuccessfullyConvertADateInAnObjectToADateType()
         {
             DateTime expected = DateTime.Now;

@@ -2,6 +2,13 @@
 
 namespace TestHelperExtensions
 {
+    /// <summary>
+    /// Adds functionality that is often used for 
+    /// unit testing to the Integer (Int32) data type
+    /// </summary>
+    /// <remarks>This library is not intended for use as production code,
+    /// but instead is intended to provide functionality in the test
+    /// libraries for that production code.</remarks>
     public static class IntExtensions
     {
         internal static Random _rnd = new Random();

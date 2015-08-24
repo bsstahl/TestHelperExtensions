@@ -15,6 +15,14 @@ namespace TestHelperExtensions.Test
         }
 
         [TestMethod]
+        public void ReturnZeroIfTheValueIsNull()
+        {
+            object target = null;
+            var result = target.ToInt32();
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
         public void RoundToTheNearestIntegerIfTheValueIsReal()
         {
             object[] data = { 40000.66667, 40000.33333, -40000.66667, -40000.33333 };
@@ -26,6 +34,8 @@ namespace TestHelperExtensions.Test
                 Assert.AreEqual(expected, result);
             }
         }
+
+
 
         [TestMethod, ExpectedException(typeof(OverflowException))]
         public void ThrowExceptionIfTheValueIsTooBigForAnInt()

@@ -40,7 +40,6 @@ namespace TestHelperExtensions.Test
             var expectedLength = byte.MaxValue.GetRandom(5);
             var target = string.Empty.GetRandom(expectedLength);
             var actual = target.ToStream();
-            actual.Position = 0;
             var reader = new System.IO.StreamReader(actual);
             var result = reader.ReadToEnd();
             Assert.AreEqual(target, result);
