@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topic id="6c6c1b11-8142-4589-a12a-d7bf2279cbbe" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>
+        A set of extension methods helpful when building unit tests. Methods
+        include functionality for creating random data of various types, converting
+        data types, comparing date data, searching within string arrays, etc.
+      </para>
+    </introduction>
+
+    <section>
+      <title>Using the TestHelperExtensions</title>
+
+      <content>
+        <para>
+          A NuGet package of this library is coming soon. This will be the
+          simplest and easiest way to get started using these methods.  In the meantime,
+          You'll need to follow the instructions below to build and use the CBI.TestHelperExtensions.dll
+        </para>
+
+        <list class="ordered">
+          <listItem>
+            <para>
+              Download the source code from the 
+              <externalLink>
+                <linkText>GitHub repository</linkText>
+                <linkUri>http://www.github.com/bsstahl/TestHelperExtensions</linkUri>
+              </externalLink>
+              and open the <legacyBold>TestHelperExtensions.sln</legacyBold> solution 
+              file in Visual Studio.  This solution was created using Visual Studio 
+              2015 but will likely work fine in older versions of Visual Studio.
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              Set the configuration to "Release" and build the CBI.TestHelperExtensions project
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              Copy the <legacyBold>CBI.TestHelperExtensions.dll</legacyBold> and
+              <legacyBold>CBI.TestHelperExtensions.pdb</legacyBold> files
+              from the ..\bin\Release folder underneath the project, to the solution
+              in which you want to use the functionality
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              Set a reference in the unit test project(s) of your solution to
+              the <legacyBold>CBI.TestHelperExtensions.dll</legacyBold>.
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              Add a <legacyItalic>Using CBI.TestHelperExtensions;</legacyItalic> declaration
+              to the top of each module from which you want to reference these functions.
+              This is necessary to bring the extension methods into the current scope.
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              Reference the functions as if they were part of the objects they are supporting.
+              For example, you can generate a random number between 10 and 100 using the 
+              statement <legacyItalic>var randomValue = 100.GetRandom(10);</legacyItalic>
+            </para>
+          </listItem>
+
+        </list>
+
+        <para>
+          Note: To get the help documentation to compile, you will need to have the
+          <externalLink>
+            <linkText>Sandcastle tools</linkText>
+            <linkUri>https://github.com/EWSoftware/SHFB</linkUri>
+          </externalLink>
+          installed.
+        </para>
+
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="a6e96d71-82cd-422f-ab38-ceccedb72dd1" />
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>
