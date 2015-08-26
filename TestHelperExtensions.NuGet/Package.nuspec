@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>TestHelperExtensions</id>
+    <version>1.0.0.0</version>
+    <title>TestHelperExtensions</title>
+    <authors>Barry S. Stahl</authors>
+    <description>
+      A set of extension methods helpful when building unit tests. Methods include 
+      functionality for creating random data of various types, converting data types, 
+      comparing date data, searching within string arrays, etc.
+    </description>
+    <releaseNotes>
+      Version 1.0.0.0 - Initial release to web.
+    </releaseNotes>
+    <summary>
+      Helpful extension methods for building good unit tests.
+    </summary>
+    <language>en-US</language>
+    <projectUrl>http://github.com/bsstahl/TestHelperExtensions</projectUrl>
+    <!-- <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon-50x50.png</iconUrl> -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/bsstahl/TestHelperExtensions/blob/master/LICENSE</licenseUrl>
+    <!-- 
+    <dependencies>
+        <group targetFramework="net40">
+          <dependency id="log4net" version="1.2.10" />
+        </group>
+    </dependencies>
+    <references></references>
+    -->
+    <tags>testing unit test extensions helper helpers</tags>
+  </metadata>
+  <files>
+    <file src="..\CBI.TestHelperExtensions\bin\Release\CBI.TestHelperExtensions.dll" target="lib\net40\CBI.TestHelperExtensions.dll" />
+    <file src="..\CBI.TestHelperExtensions\bin\Release\CBI.TestHelperExtensions.pdb" target="lib\net40\CBI.TestHelperExtensions.pdb" />
+    <!-- 
+    <file src="lib\" target="lib" />
+    <file src="tools\" target="tools" />
+    <file src="content\" target="content" />
+    -->
+  </files>
+</package>

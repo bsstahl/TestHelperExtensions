@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBI.TestHelperExtensions", 
 EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "TestHelperExtensions.Documentation", "TestHelperExtensions.Documentation\TestHelperExtensions.Documentation.shfbproj", "{FED12B52-70E1-40CB-A91F-090CDF9DE2BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHelperExtensions.NuGet", "TestHelperExtensions.NuGet\TestHelperExtensions.NuGet.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{FED12B52-70E1-40CB-A91F-090CDF9DE2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FED12B52-70E1-40CB-A91F-090CDF9DE2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FED12B52-70E1-40CB-A91F-090CDF9DE2BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

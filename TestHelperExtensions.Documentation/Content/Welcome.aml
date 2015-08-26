@@ -10,26 +10,106 @@
     </introduction>
 
     <section>
-      <title>Using the TestHelperExtensions</title>
+      <title>Installing the TestHelperExtensions from NuGet</title>
+      <content>
+        <para>
+          Installing these extensions using the NuGet package manager is the
+          simplest and easiest way to get started using these extensions.  There are
+          2 options, either of which accomplishes the same thing:
+        </para>
+
+        <list class="bullet">
+          <listItem>
+            <para>Using the NuGet Package Manager GUI</para>
+            <list class="ordered">
+              <listItem>
+                <para>
+                  From the solution containing the test library, select
+                  <legacyItalic>Manage NuGet Packages for Solution</legacyItalic>.
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  On the resulting NuGet UI, select the package source <legacyItalic>nuget.org</legacyItalic>
+                  and the filter <legacyItalic>All</legacyItalic>.
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  Using the search box, search for <legacyItalic>TestHelperExtensions</legacyItalic>.
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  Click on TestHelperExtensions on the left side of the screen to select that package.
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  On the right side of the screen, be sure the test project in your solution that you
+                  want to use these helper methods with is checked and that production projects are
+                  not checked.
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  Click <legacyItalic>Install</legacyItalic> to install the package.
+                </para>
+              </listItem>
+            </list>
+          </listItem>
+
+          <listItem>
+            <para>Using the NuGet Package Manager Console</para>
+            <list class="ordered">
+              <listItem>
+                <para>
+                  From the tools menu in Visual Studio, select
+                  <legacyItalic>NuGet Package Manager -> Package Manager Console</legacyItalic>.
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  In the drop-downs at the top of the resulting console window, select the package
+                  source <legacyItalic>nuget.org</legacyItalic> and be sure that the default project
+                  is set to the test project in your solution that you want to use these helper methods with.
+                  You do <legacyBold>not</legacyBold> want to install the extensions into production projects, 
+                  just unit test projects.
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  Type <legacyItalic>Install-Package TestHelperExtensions</legacyItalic> to install the package.
+                </para>
+              </listItem>
+            </list>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <section>
+      <title>Building and Installing the TestHelperExtensions Yourself</title>
 
       <content>
         <para>
-          A NuGet package of this library is coming soon. This will be the
-          simplest and easiest way to get started using these methods.  In the meantime,
-          You'll need to follow the instructions below to build and use the CBI.TestHelperExtensions.dll
+          The NuGet package methods shown above are the simplest and easiest way to get
+          started using these extensions.  If, however, you want to load and build
+          the library yourself, you'll can follow the instructions below.
         </para>
 
         <list class="ordered">
           <listItem>
             <para>
-              Download the source code from the 
+              Download the source code from the
               <externalLink>
                 <linkText>GitHub repository</linkText>
                 <linkUri>http://www.github.com/bsstahl/TestHelperExtensions</linkUri>
               </externalLink>
-              and open the <legacyBold>TestHelperExtensions.sln</legacyBold> solution 
-              file in Visual Studio.  This solution was created using Visual Studio 
-              2015 but will likely work fine in older versions of Visual Studio.
+              and open the <legacyBold>TestHelperExtensions.sln</legacyBold> solution
+              file in Visual Studio.  This solution was built using Visual Studio
+              2015 but was created in much earlier versions and should work fine in older
+              versions of Visual Studio.
             </para>
           </listItem>
 
@@ -55,9 +135,47 @@
             </para>
           </listItem>
 
+        </list>
+
+        <para>
+          Notes:
+        </para>
+        <list class="bullet">
           <listItem>
             <para>
-              Add a <legacyItalic>Using CBI.TestHelperExtensions;</legacyItalic> declaration
+              To get the help documentation to compile, you will need to have the
+              <externalLink>
+                <linkText>Sandcastle tools</linkText>
+                <linkUri>https://github.com/EWSoftware/SHFB</linkUri>
+              </externalLink>
+              installed.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              To get the NuGet package project to compile, you will need to have the
+              <externalLink>
+                <linkText>NuGet Packager</linkText>
+                <linkUri>http://www.eyecatch.no/blog/create-nuget-packages-easily/</linkUri>
+              </externalLink>
+              templates installed.
+            </para>
+          </listItem>
+        </list>
+
+      </content>
+    </section>
+
+    <section>
+      <title>Using the TestHelperExtensions</title>
+
+      <content>
+        <para>However you install the extensions, they are very simple to use once installed.</para>
+
+        <list class="ordered">
+          <listItem>
+            <para>
+              Add a <legacyItalic>Using TestHelperExtensions;</legacyItalic> declaration
               to the top of each module from which you want to reference these functions.
               This is necessary to bring the extension methods into the current scope.
             </para>
@@ -66,22 +184,12 @@
           <listItem>
             <para>
               Reference the functions as if they were part of the objects they are supporting.
-              For example, you can generate a random number between 10 and 100 using the 
+              For example, you can generate a random number between 10 and 100 using the
               statement <legacyItalic>var randomValue = 100.GetRandom(10);</legacyItalic>
             </para>
           </listItem>
 
         </list>
-
-        <para>
-          Note: To get the help documentation to compile, you will need to have the
-          <externalLink>
-            <linkText>Sandcastle tools</linkText>
-            <linkUri>https://github.com/EWSoftware/SHFB</linkUri>
-          </externalLink>
-          installed.
-        </para>
-
       </content>
     </section>
 
