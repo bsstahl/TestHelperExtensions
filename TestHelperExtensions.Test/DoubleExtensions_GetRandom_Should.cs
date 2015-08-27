@@ -17,39 +17,9 @@ namespace TestHelperExtensions.Test
             TestHelperExtensions.LongExtensions._rnd = new Random();
         }
 
-        //#region Interaction Tests
-
-        //// These tests require some knowlege of the underlying
-        //// implementation.  As a result, they can be more brittle
-        //// then the rules test (needing to be changed if the
-        //// implementation details change).
-
-        //[TestMethod]
-        //public void CallTheRandomNumberGenerator()
-        //{
-        //    var radius = _random.Next(3, 33000);
-        //    long upperBound = Convert.ToInt32(Int16.MaxValue + radius);
-        //    long lowerBound = Convert.ToInt32(Int16.MaxValue - radius);
-        //    var randomGeneratorCalled = false;
-
-        //    var r = new System.Fakes.StubRandom();
-        //    r.NextDouble01 = () =>
-        //    {
-        //        randomGeneratorCalled = true;
-        //        return 0.0;
-        //    };
-
-        //    TestHelperExtensions.LongExtensions._rnd = r;
-
-        //    var actual = upperBound.GetRandom(lowerBound);
-        //    Assert.IsTrue(randomGeneratorCalled);
-        //}
-
-        //#endregion
-
         #region Rules Tests
 
-        // Rules tests are the prefferred types of unit tests since they
+        // Rules tests are the preferred types of unit tests since they
         // test those things that the customers care about. However, they
         // can sometimes be incomplete, or extremely difficult to make 
         // comprehensive.  In this example, we can easily check the
@@ -134,6 +104,38 @@ namespace TestHelperExtensions.Test
             var result = upperBound.GetRandom(lowerBound);
         }
 
+        [TestMethod]
+        public void NotFailIfTheLowerBoundIsCloseToTheUpperBoundButStillLower()
+        {
+            double upperBound = 2.5;
+            double lowerBound = 0.5;
+            var result = upperBound.GetRandom(lowerBound);
+        }
+
+        [TestMethod]
+        public void SpanTheFullRangeOfValuesIfTheRangeIsLessThanOne()
+        {
+            const int executionCount = 10000;
+
+            double upperBound = 2.9;
+            double lowerBound = 2.1;
+
+            double minValue = upperBound;
+            double maxValue = lowerBound;
+
+            for (int i = 0; i < executionCount; i++)
+            {
+                var result = upperBound.GetRandom(lowerBound);
+                if (result < minValue)
+                    minValue = result;
+                if (result > maxValue)
+                    maxValue = result;
+            }
+
+            Assert.AreEqual(lowerBound, minValue);
+            Assert.AreEqual(upperBound, maxValue);
+        }
+
         #endregion
 
         #region Sanity Tests
@@ -190,6 +192,71 @@ namespace TestHelperExtensions.Test
 
             double upperBound = Convert.ToDouble(Int16.MaxValue) + Convert.ToDouble(_random.Next(Int16.MaxValue) + _random.NextDouble());
             double lowerBound = upperBound - (2 * Convert.ToDouble(_random.Next(Int16.MaxValue))) - _random.NextDouble();
+
+            double expectedRange = upperBound - lowerBound;
+            var slop = Convert.ToDouble(expectedRange * tolerance);
+            var minRange = expectedRange - slop;
+            var maxRange = expectedRange + slop;
+
+
+            var result = 100000.GetRandomDoubleValues(upperBound, lowerBound);
+            var actualRange = result.Range();
+
+            TestContext.WriteLine("range:{0} min allowed:{1} max allowed:{2}", actualRange, minRange, maxRange);
+            Assert.IsTrue(actualRange > minRange);
+            Assert.IsTrue(actualRange < maxRange);
+
+        }
+
+        [TestMethod]
+        public void HaveAnAverageResultNearTheMiddleOfTheRangeForASmallRange()
+        {
+            const double tolerance = .001;
+
+            double upperBound = _random.NextDouble() * Convert.ToDouble(_random.Next(byte.MaxValue));
+            double lowerBound = upperBound - _random.NextDouble();
+
+            var expectedMean = Convert.ToDouble((upperBound - lowerBound) / 2) + lowerBound;
+            var slop = Convert.ToInt64(expectedMean * tolerance);
+            var minMean = expectedMean - slop;
+            var maxMean = expectedMean + slop;
+
+            var result = 100000.GetRandomDoubleValues(upperBound, lowerBound);
+            var actualMean = result.Average();
+
+            TestContext.WriteLine("mean:{0} min allowed:{1} max allowed:{2} lower bound:{3} upper bound:{4}", actualMean, minMean, maxMean, lowerBound, upperBound);
+            Assert.IsTrue(actualMean > minMean);
+            Assert.IsTrue(actualMean < maxMean);
+        }
+
+        [TestMethod]
+        public void HaveAMedianResultNearTheMiddleOfTheRangeForASmallRange()
+        {
+            const double tolerance = .001;
+
+            double upperBound = _random.NextDouble() * Convert.ToDouble(_random.Next(byte.MaxValue));
+            double lowerBound = upperBound - _random.NextDouble();
+
+            var expectedMedian = Convert.ToDouble((upperBound - lowerBound) / 2) + lowerBound;
+            var slop = Convert.ToDouble(expectedMedian * tolerance);
+            var minMedian = expectedMedian - Math.Abs(slop);
+            var maxMedian = expectedMedian + Math.Abs(slop);
+
+            var result = 100000.GetRandomDoubleValues(upperBound, lowerBound);
+            var actualMedian = result.Median();
+
+            TestContext.WriteLine("median:{0} min allowed:{1} max allowed:{2}", actualMedian, minMedian, maxMedian);
+            Assert.IsTrue(actualMedian > minMedian);
+            Assert.IsTrue(actualMedian < maxMedian);
+        }
+
+        [TestMethod]
+        public void GetResultsAcrossTheEntireRangeOfTheRequestForASmallRange()
+        {
+            const double tolerance = .001;
+
+            double upperBound = _random.NextDouble() * Convert.ToDouble(_random.Next(byte.MaxValue));
+            double lowerBound = upperBound - _random.NextDouble();
 
             double expectedRange = upperBound - lowerBound;
             var slop = Convert.ToDouble(expectedRange * tolerance);
