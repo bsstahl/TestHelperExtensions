@@ -22,7 +22,7 @@ namespace TestHelperExtensions
         /// Returns a random number greater than or equal to 0 and less than the double value
         /// </summary>
         /// <param name="maxValue">The non-inclusive maximum value for the random number</param>
-        /// <returns>A random double</returns>
+        /// <returns>A random double less than the maxValue and greater than zero.</returns>
         public static double GetRandom(this double maxValue)
         {
             return maxValue.GetRandom(0);
@@ -33,7 +33,7 @@ namespace TestHelperExtensions
         /// </summary>
         /// <param name="maxValue">The non-inclusive maximum value for the random number</param>
         /// <param name="minValue">The inclusive minimum value for the random number</param>
-        /// <returns>A random double between in the specified range</returns>
+        /// <returns>A random double in the specified range</returns>
         public static double GetRandom(this double maxValue, double minValue)
         {
             if (minValue >= maxValue)
