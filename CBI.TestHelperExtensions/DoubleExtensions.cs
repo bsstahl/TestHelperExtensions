@@ -29,27 +29,28 @@ namespace TestHelperExtensions
         }
 
         /// <summary>
-        /// Returns a random number greater than or equal to the specified minValue and less than the integer
+        /// Returns a random number greater than or equal to the specified minValue and less than the maxValue
         /// </summary>
-        /// <param name="maxValue">The non-inclusive maximum integer value for the random number</param>
-        /// <param name="minValue">the inclusive minimum integer value for the random number</param>
-        /// <returns>A random integer</returns>
+        /// <param name="maxValue">The non-inclusive maximum value for the random number</param>
+        /// <param name="minValue">The inclusive minimum value for the random number</param>
+        /// <returns>A random double between in the specified range</returns>
         public static double GetRandom(this double maxValue, double minValue)
         {
             if (minValue >= maxValue)
                 throw new ArgumentOutOfRangeException("minValue", "minValue must be less than maxValue");
 
-            long maxBase;
-            if (maxValue > Int64.MaxValue)
-                maxBase = Int64.MaxValue;
-            else
-                maxBase = Convert.ToInt64(maxValue) - 1;
-            long minBase = Convert.ToInt64(System.Math.Round(minValue + 0.5));
+            double range = maxValue - minValue;
 
-            double resultMantissa = _rnd.NextDouble();
-            long resultBase = maxBase.GetRandom(minBase);
+            if (range > Int64.MaxValue)
+                throw new OverflowException("The range of values cannot be greater than Int64.MaxValue");
 
-            return Convert.ToDouble(resultBase) + Convert.ToDouble(resultMantissa);
+            long rangeBase = Convert.ToInt64(System.Math.Floor(range));
+            double rangeMantissa = range - rangeBase;
+
+            double resultMantissa = _rnd.NextDouble() * rangeMantissa;
+            long resultBase = (rangeBase > 0) ? rangeBase.GetRandom() : 0;
+
+            return Convert.ToDouble(resultBase) + Convert.ToDouble(resultMantissa) + minValue;
         }
     }
 }

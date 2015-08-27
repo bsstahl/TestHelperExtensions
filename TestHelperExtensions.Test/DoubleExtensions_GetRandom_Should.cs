@@ -132,8 +132,8 @@ namespace TestHelperExtensions.Test
                     maxValue = result;
             }
 
-            Assert.AreEqual(lowerBound, minValue);
-            Assert.AreEqual(upperBound, maxValue);
+            Assert.AreEqual(Math.Round(lowerBound, 2), Math.Round(minValue, 2), "Incorrect minimum value");
+            Assert.AreEqual(Math.Round(upperBound, 2), Math.Round(maxValue, 2), "Incorrect maximum value");
         }
 
         #endregion
@@ -211,22 +211,22 @@ namespace TestHelperExtensions.Test
         [TestMethod]
         public void HaveAnAverageResultNearTheMiddleOfTheRangeForASmallRange()
         {
-            const double tolerance = .001;
+            const double tolerance = .02;
 
             double upperBound = _random.NextDouble() * Convert.ToDouble(_random.Next(byte.MaxValue));
             double lowerBound = upperBound - _random.NextDouble();
 
             var expectedMean = Convert.ToDouble((upperBound - lowerBound) / 2) + lowerBound;
             var slop = Convert.ToInt64(expectedMean * tolerance);
-            var minMean = expectedMean - slop;
-            var maxMean = expectedMean + slop;
+            var minMean = Math.Round(expectedMean - slop, 2);
+            var maxMean = Math.Round(expectedMean + slop, 2);
 
             var result = 100000.GetRandomDoubleValues(upperBound, lowerBound);
-            var actualMean = result.Average();
+            var actualMean = Math.Round(result.Average(), 2);
 
             TestContext.WriteLine("mean:{0} min allowed:{1} max allowed:{2} lower bound:{3} upper bound:{4}", actualMean, minMean, maxMean, lowerBound, upperBound);
-            Assert.IsTrue(actualMean > minMean);
-            Assert.IsTrue(actualMean < maxMean);
+            Assert.IsTrue(actualMean >= minMean);
+            Assert.IsTrue(actualMean <= maxMean);
         }
 
         [TestMethod]
@@ -262,7 +262,6 @@ namespace TestHelperExtensions.Test
             var slop = Convert.ToDouble(expectedRange * tolerance);
             var minRange = expectedRange - slop;
             var maxRange = expectedRange + slop;
-
 
             var result = 100000.GetRandomDoubleValues(upperBound, lowerBound);
             var actualRange = result.Range();
