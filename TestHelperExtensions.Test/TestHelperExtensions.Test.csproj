@@ -40,9 +40,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="mscorlib.4.0.0.0.Fakes">
       <HintPath>FakesAssemblies\mscorlib.4.0.0.0.Fakes.dll</HintPath>
     </Reference>
@@ -67,6 +65,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="EnumerableExtensions_GetRandom_Should.cs" />
+    <Compile Include="Helpers\TestReferenceType.cs" />
     <Compile Include="ShortExtensions_GetRandom_Should.cs" />
     <Compile Include="IntExtensions_GetRandom_Should.cs" />
     <Compile Include="DateTimeExtensions_To100MSPrecision_Should.cs" />

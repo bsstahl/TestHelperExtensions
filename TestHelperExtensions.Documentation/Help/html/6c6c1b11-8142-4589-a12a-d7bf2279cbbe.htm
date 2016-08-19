@@ -1,0 +1,77 @@
+﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"> </script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>TestHelperExtensions Documentation</title><meta name="Language" content="en-us" /><meta name="System.Keywords" content="Welcome" /><meta name="Microsoft.Help.Id" content="6c6c1b11-8142-4589-a12a-d7bf2279cbbe" /><meta name="Description" content="A set of extension methods helpful when building unit tests. Methods include functionality for creating random data of various types, converting data types, comparing date data, searching within string arrays, etc." /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="BrandingAware" content="true" /><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-1.11.0.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script></head><body onload="OnLoad('cs')"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="pageHeader" id="PageHeader">A Sandcastle Documented Class Library<form id="SearchForm" method="get" action="#" onsubmit="javascript:TransferToSearchPage(); return false;"><input id="SearchTextBox" type="text" maxlength="200" /><button id="SearchButton" type="submit"></button></form></div><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0" data-childrenloaded="true"><a class="tocExpanded" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="6c6c1b11-8142-4589-a12a-d7bf2279cbbe.htm" title="A Sandcastle Documented Class Library" tocid="roottoc">A Sandcastle Documented Class Library</a></div><div class="toclevel1 current" data-toclevel="1"><a data-tochassubtree="false" href="6c6c1b11-8142-4589-a12a-d7bf2279cbbe.htm" title="TestHelperExtensions Documentation" tocid="6c6c1b11-8142-4589-a12a-d7bf2279cbbe">TestHelperExtensions Documentation</a></div><div class="toclevel1" data-toclevel="1"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="a6e96d71-82cd-422f-ab38-ceccedb72dd1.htm" title="Version History" tocid="a6e96d71-82cd-422f-ab38-ceccedb72dd1">Version History</a></div><div class="toclevel1" data-toclevel="1"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="3c7900d7-77df-8bfc-ef40-17ae546168aa.htm" title="TestHelperExtensions" tocid="3c7900d7-77df-8bfc-ef40-17ae546168aa">TestHelperExtensions</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div class="topicContent" id="TopicContent"><table class="titleTable"><tr><td class="logoColumn"><img src="../icons/Help.png" /></td><td class="titleColumn">TestHelperExtensions Documentation</td></tr></table><span class="introStyle"></span><div class="introduction"><p>
+        A set of extension methods helpful when building unit tests. Methods
+        include functionality for creating random data of various types, converting
+        data types, comparing date data, searching within string arrays, etc.
+      </p></div><div class="collapsibleAreaRegion"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID0RB')" onkeypress="SectionExpandCollapse_CheckKey('ID0RB', event)" tabindex="0"><img id="ID0RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Installing the TestHelperExtensions from NuGet</span></div><div id="ID0RBSection" class="collapsibleSection"><p>
+          Installing these extensions using the NuGet package manager is the
+          simplest and easiest way to get started using these extensions.  There are
+          2 options, either of which accomplishes the same thing:
+        </p><ul><li><p>Using the NuGet Package Manager GUI</p><ol><li><p>
+                  From the solution containing the test library, select
+                  <em>Manage NuGet Packages for Solution</em>.
+                </p></li><li><p>
+                  On the resulting NuGet UI, select the package source <em>nuget.org</em>
+                  and the filter <em>All</em>.
+                </p></li><li><p>
+                  Using the search box, search for <em>TestHelperExtensions</em>.
+                </p></li><li><p>
+                  Click on TestHelperExtensions on the left side of the screen to select that package.
+                </p></li><li><p>
+                  On the right side of the screen, be sure the test project in your solution that you
+                  want to use these helper methods with is checked and that production projects are
+                  not checked.
+                </p></li><li><p>
+                  Click <em>Install</em> to install the package.
+                </p></li></ol></li><li><p>Using the NuGet Package Manager Console</p><ol><li><p>
+                  From the tools menu in Visual Studio, select
+                  <em>NuGet Package Manager -&gt; Package Manager Console</em>.
+                </p></li><li><p>
+                  In the drop-downs at the top of the resulting console window, select the package
+                  source <em>nuget.org</em> and be sure that the default project
+                  is set to the test project in your solution that you want to use these helper methods with.
+                  You do <strong>not</strong> want to install the extensions into production projects,
+                  just unit test projects.
+                </p></li><li><p>
+                  Type <em>Install-Package TestHelperExtensions</em> to install the package.
+                </p></li></ol></li></ul></div><div class="collapsibleAreaRegion"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID1RB')" onkeypress="SectionExpandCollapse_CheckKey('ID1RB', event)" tabindex="0"><img id="ID1RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Building and Installing the TestHelperExtensions Yourself</span></div><div id="ID1RBSection" class="collapsibleSection"><p>
+          The NuGet package methods shown above are the simplest and easiest way to get
+          started using these extensions.  If, however, you want to load and build
+          the library yourself, you'll can follow the instructions below.
+        </p><ol><li><p>
+              Download the source code from the
+              <a href="http://www.github.com/bsstahl/TestHelperExtensions" target="_blank">GitHub repository</a>
+              and open the <strong>TestHelperExtensions.sln</strong> solution
+              file in Visual Studio.  This solution was built using Visual Studio
+              2015 but was created in much earlier versions and should work fine in older
+              versions of Visual Studio.
+            </p></li><li><p>
+              Set the configuration to "Release" and build the CBI.TestHelperExtensions project
+            </p></li><li><p>
+              Copy the <strong>CBI.TestHelperExtensions.dll</strong> and
+              <strong>CBI.TestHelperExtensions.pdb</strong> files
+              from the ..\bin\Release folder underneath the project, to the solution
+              in which you want to use the functionality
+            </p></li><li><p>
+              Set a reference in the unit test project(s) of your solution to
+              the <strong>CBI.TestHelperExtensions.dll</strong>.
+            </p></li></ol><p>
+          Notes:
+        </p><ul><li><p>
+              To get the help documentation to compile, you will need to have the
+              <a href="https://github.com/EWSoftware/SHFB" target="_blank">Sandcastle tools</a>
+              installed.
+            </p></li><li><p>
+              To get the NuGet package project to compile, you will need to have the
+              <a href="http://www.eyecatch.no/blog/create-nuget-packages-easily/" target="_blank">NuGet Packager</a>
+              templates installed.
+            </p></li></ul></div><div class="collapsibleAreaRegion"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID2RB')" onkeypress="SectionExpandCollapse_CheckKey('ID2RB', event)" tabindex="0"><img id="ID2RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Using the TestHelperExtensions</span></div><div id="ID2RBSection" class="collapsibleSection"><p>However you install the extensions, they are very simple to use once installed.</p><ol><li><p>
+              Add a <em>Using TestHelperExtensions;</em> declaration
+              to the top of each module from which you want to reference these functions.
+              This is necessary to bring the extension methods into the current scope.
+            </p></li><li><p>
+              Reference the functions as if they were part of the objects they are supporting.
+              For example, you can generate a random number between 10 and 100 using the
+              statement <em>var randomValue = 100.GetRandom(10);</em></p></li></ol><p>
+          For detailed information on the classes and methods available in this
+          library, see
+          <a href="3c7900d7-77df-8bfc-ef40-17ae546168aa.htm" target="_self">TestHelperExtensions Namespace</a></p></div><div class="collapsibleAreaRegion" id="seeAlsoSection"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID3RB')" onkeypress="SectionExpandCollapse_CheckKey('ID3RB', event)" tabindex="0"><img id="ID3RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />See Also</span></div><div id="ID3RBSection" class="collapsibleSection"><h4 class="subHeading">Other Resources</h4><div class="seeAlsoStyle"><a href="a6e96d71-82cd-422f-ab38-ceccedb72dd1.htm">Version History</a></div></div></div></div><div id="pageFooter" class="pageFooter" /></body></html>
