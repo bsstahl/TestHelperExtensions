@@ -2,86 +2,86 @@
 <HelpTOC>
 
   <HelpTOCNode Title="TestHelperExtensions Documentation" Url="html/6c6c1b11-8142-4589-a12a-d7bf2279cbbe.htm" />
-  <HelpTOCNode Id="b398f998-1296-4073-b230-7eb37b1d0ec0" Title="Version History" Url="html/a6e96d71-82cd-422f-ab38-ceccedb72dd1.htm">
+  <HelpTOCNode Id="19c9dba4-5da2-4478-b9f3-cc3d7b8659b9" Title="Version History" Url="html/a6e96d71-82cd-422f-ab38-ceccedb72dd1.htm">
     <HelpTOCNode Title="Version 1.0.0.0" Url="html/f6ae2fa3-9752-4d09-b2dd-f009d6790cdc.htm" />
   </HelpTOCNode>
-  <HelpTOCNode Id="5adc9242-4706-40a0-915e-2abd0f57c12d" Title="TestHelperExtensions" Url="html/3c7900d7-77df-8bfc-ef40-17ae546168aa.htm">
-    <HelpTOCNode Id="520f0ff2-80e8-4cf9-aad8-b637d19a0b9e" Title="BoolExtensions Class" Url="html/f50b8600-0e1a-3a5a-af37-680a8a2f9963.htm">
-      <HelpTOCNode Id="d6aed90a-1fba-498e-a7bf-a2094b0bf602" Title="BoolExtensions Methods" Url="html/3ffb1600-7eef-b275-37e7-72072ccda247.htm">
+  <HelpTOCNode Id="5954cb7d-ff7e-47ed-85ff-4f0d97acb155" Title="TestHelperExtensions" Url="html/3c7900d7-77df-8bfc-ef40-17ae546168aa.htm">
+    <HelpTOCNode Id="5990fade-2d88-46e1-af8e-8dd94e019936" Title="BoolExtensions Class" Url="html/f50b8600-0e1a-3a5a-af37-680a8a2f9963.htm">
+      <HelpTOCNode Id="3fac5cc5-8cfa-4ac5-9f98-e42ad91cbfc8" Title="BoolExtensions Methods" Url="html/3ffb1600-7eef-b275-37e7-72072ccda247.htm">
         <HelpTOCNode Title="GetRandom Method " Url="html/52286b0c-16a3-52b1-8b8a-425f09f44dbd.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="daf2eb11-7bf3-42e4-a46d-ae5c07fa36f4" Title="ByteExtensions Class" Url="html/bf858581-0918-3f3f-bd08-5395ecf34c24.htm">
-      <HelpTOCNode Id="a5872195-11cf-4288-993d-ae20595ef58b" Title="ByteExtensions Methods" Url="html/d5537e3d-8c9d-f770-0608-5fe1d75f12c2.htm">
-        <HelpTOCNode Id="12c4083c-b067-48be-8745-42d26f063efe" Title="GetRandom Method " Url="html/86d596a7-b0d7-5228-bbb3-c65cd04e59fa.htm">
+    <HelpTOCNode Id="78b6c60c-30f9-4afc-b8ee-7320e6aecf1d" Title="ByteExtensions Class" Url="html/bf858581-0918-3f3f-bd08-5395ecf34c24.htm">
+      <HelpTOCNode Id="b819dd08-5d4f-4fe2-a840-9bdbc799640e" Title="ByteExtensions Methods" Url="html/d5537e3d-8c9d-f770-0608-5fe1d75f12c2.htm">
+        <HelpTOCNode Id="d0c8d517-5dd8-45ed-a76c-b36c2a3dbc65" Title="GetRandom Method " Url="html/86d596a7-b0d7-5228-bbb3-c65cd04e59fa.htm">
           <HelpTOCNode Title="GetRandom Method (Byte)" Url="html/74562ac9-7a03-815e-a1d7-6f2ab1bae89b.htm" />
           <HelpTOCNode Title="GetRandom Method (Byte, Byte)" Url="html/2b397bd0-60d0-1d14-b774-b213dcbec4db.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="3245afe7-b314-434a-a2b5-3fd8634911cb" Title="DateTimeExtensions Class" Url="html/082d773e-29b7-12d2-92ee-f338fcd1c693.htm">
-      <HelpTOCNode Id="f6f7bf8a-aea9-456b-929b-f6916d0a667d" Title="DateTimeExtensions Methods" Url="html/8908d5eb-2e68-739d-1aba-a9a48f085f51.htm">
+    <HelpTOCNode Id="53773be1-912b-431a-85a2-cf8988554a5c" Title="DateTimeExtensions Class" Url="html/082d773e-29b7-12d2-92ee-f338fcd1c693.htm">
+      <HelpTOCNode Id="bf923c03-d82a-4627-aab2-ba0d6311485b" Title="DateTimeExtensions Methods" Url="html/8908d5eb-2e68-739d-1aba-a9a48f085f51.htm">
         <HelpTOCNode Title="EqualWithinTolerance Method " Url="html/bd93b5bc-244d-ca59-7074-7ed74d9debdc.htm" />
-        <HelpTOCNode Id="685ea8c8-b638-477b-92fc-c396314075cc" Title="GetRandom Method " Url="html/880029a8-c2e2-d861-9c71-950788409f16.htm">
+        <HelpTOCNode Id="ba7291dc-c844-4144-83c5-1af99146215e" Title="GetRandom Method " Url="html/880029a8-c2e2-d861-9c71-950788409f16.htm">
           <HelpTOCNode Title="GetRandom Method (DateTime)" Url="html/d4973e4d-ffd8-4011-7f18-0f0f02d5163a.htm" />
           <HelpTOCNode Title="GetRandom Method (DateTime, DateTime)" Url="html/73da0f4a-8758-7594-9531-2b2afb1f000c.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="d63b45f2-19b9-4256-9247-ed8d7afbbe0d" Title="To100MSPrecision Method " Url="html/9baca7e6-f758-d12e-e755-0060dd950084.htm">
+        <HelpTOCNode Id="35e7fd70-cb6a-4be8-aea3-780f6cfb1f17" Title="To100MSPrecision Method " Url="html/9baca7e6-f758-d12e-e755-0060dd950084.htm">
           <HelpTOCNode Title="To100MSPrecision Method (DateTime)" Url="html/a53b99b1-1cc9-2de8-4743-15d29962c0e9.htm" />
           <HelpTOCNode Title="To100MSPrecision Method (Nullable(DateTime))" Url="html/3ada5272-9182-027a-f134-02fc7833fb18.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="f25e4984-ca97-4080-bd31-3ee401e82fd3" Title="To10MSPrecision Method " Url="html/55a6fdfe-2f18-353d-f589-2521ef540d2e.htm">
+        <HelpTOCNode Id="535dc269-75d9-4c54-bdac-f2ddd4dd8cba" Title="To10MSPrecision Method " Url="html/55a6fdfe-2f18-353d-f589-2521ef540d2e.htm">
           <HelpTOCNode Title="To10MSPrecision Method (DateTime)" Url="html/b93ed054-b4f7-7c6d-aba6-e8daf7576b1e.htm" />
           <HelpTOCNode Title="To10MSPrecision Method (Nullable(DateTime))" Url="html/0bb94fc7-fb3f-6969-7e0f-2a598d9fc911.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="3e8d85f8-5440-4d74-b14c-138b7a2d856e" Title="ToMinutePrecision Method " Url="html/4f0d925b-d002-a31a-a084-15df9c514c3b.htm">
+        <HelpTOCNode Id="1ae275b3-0f30-4921-9d63-46812acddaab" Title="ToMinutePrecision Method " Url="html/4f0d925b-d002-a31a-a084-15df9c514c3b.htm">
           <HelpTOCNode Title="ToMinutePrecision Method (DateTime)" Url="html/0575cecc-41f4-133c-e75e-e0413c722e06.htm" />
           <HelpTOCNode Title="ToMinutePrecision Method (Nullable(DateTime))" Url="html/4f745beb-d510-1d06-8f3f-652384bffb1f.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="ec3e43b2-399d-4000-906e-ac5f455963df" Title="ToOracleDate Method " Url="html/eeab7150-5c7d-803e-4375-649d012c1414.htm">
+        <HelpTOCNode Id="eb1c68d6-7749-4ec2-92c5-164d9e59e985" Title="ToOracleDate Method " Url="html/eeab7150-5c7d-803e-4375-649d012c1414.htm">
           <HelpTOCNode Title="ToOracleDate Method (DateTime)" Url="html/178dce34-7b60-fc94-0e35-cd84d5055525.htm" />
           <HelpTOCNode Title="ToOracleDate Method (Nullable(DateTime))" Url="html/5f871cc3-42d0-9560-d49e-db48c2b8e034.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="d5c76ae1-76ff-41aa-8235-89a6463aa81e" Title="ToSecondPrecision Method " Url="html/448a0b72-3aeb-d7ff-5b67-b2ba6ef29aea.htm">
+        <HelpTOCNode Id="f6d796da-73ee-47d0-a128-6d2feda67e72" Title="ToSecondPrecision Method " Url="html/448a0b72-3aeb-d7ff-5b67-b2ba6ef29aea.htm">
           <HelpTOCNode Title="ToSecondPrecision Method (DateTime)" Url="html/78f2a9f2-09aa-9cbd-65ee-f7a7653bc326.htm" />
           <HelpTOCNode Title="ToSecondPrecision Method (Nullable(DateTime))" Url="html/37d45649-c7e5-65ad-f719-68b4f0939593.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="0564d727-9a79-4642-87e4-d3a83bf447c8" Title="DoubleExtensions Class" Url="html/c98a1dd9-6164-5373-d61e-92dc1077b62e.htm">
-      <HelpTOCNode Id="af2278d2-4c0a-402a-9946-70468c3e3824" Title="DoubleExtensions Methods" Url="html/e349c453-6307-6fea-f5fb-74cea44f8ffc.htm">
-        <HelpTOCNode Id="741483df-74f9-434f-870b-6620714cbca9" Title="GetRandom Method " Url="html/219ddbb4-3f68-79e9-677e-90744792d99c.htm">
+    <HelpTOCNode Id="04104c20-91ec-45b1-982d-af2d1c997c82" Title="DoubleExtensions Class" Url="html/c98a1dd9-6164-5373-d61e-92dc1077b62e.htm">
+      <HelpTOCNode Id="6ed75091-190f-4e7e-a4a2-3679c45dff4b" Title="DoubleExtensions Methods" Url="html/e349c453-6307-6fea-f5fb-74cea44f8ffc.htm">
+        <HelpTOCNode Id="cf98f3d6-30b7-44b6-b620-833287be06af" Title="GetRandom Method " Url="html/219ddbb4-3f68-79e9-677e-90744792d99c.htm">
           <HelpTOCNode Title="GetRandom Method (Double)" Url="html/0b613cc8-17e7-de1f-e14e-f264d47c7730.htm" />
           <HelpTOCNode Title="GetRandom Method (Double, Double)" Url="html/cd35088f-b656-dae5-7936-b358b1e398e6.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="270d3a0e-8264-4f69-a75a-6414526285de" Title="EnumerableExtensions Class" Url="html/cee545cd-7c79-779a-cdf6-b7a3bf105d99.htm">
-      <HelpTOCNode Id="a30d94d7-5f17-4fde-af7d-8fc0e5529937" Title="EnumerableExtensions Methods" Url="html/cc8621fa-d099-e257-3abb-58a9b9000971.htm">
+    <HelpTOCNode Id="9e867033-2897-41b7-b54d-8bbed1b02a14" Title="EnumerableExtensions Class" Url="html/cee545cd-7c79-779a-cdf6-b7a3bf105d99.htm">
+      <HelpTOCNode Id="3d9bed92-7ba3-4cb6-96f2-0a04c5f0183a" Title="EnumerableExtensions Methods" Url="html/cc8621fa-d099-e257-3abb-58a9b9000971.htm">
         <HelpTOCNode Title="GetRandom(T) Method " Url="html/e530fde9-333a-7fd9-93eb-21bbe8be9151.htm" />
         <HelpTOCNode Title="Median(T) Method " Url="html/6b8ab7f2-0caf-4155-c3a6-59ebd29d11ea.htm" />
         <HelpTOCNode Title="Range(T) Method " Url="html/d8329bb2-4e7d-5d5a-2ed8-75211f35e5fc.htm" />
         <HelpTOCNode Title="StdDev(T) Method " Url="html/d958ff4a-2a0a-e052-3207-92b702cc0ab0.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="f9998761-597c-4644-a8ff-1e0869c51f0c" Title="IntExtensions Class" Url="html/5a50cb53-c500-5ce2-1592-8cb39a333660.htm">
-      <HelpTOCNode Id="8422544b-3db0-4262-aa8a-b1c6fe9abb72" Title="IntExtensions Methods" Url="html/3c4cc8f0-597e-9074-4b5d-fb64b97c74bd.htm">
-        <HelpTOCNode Id="a741fa2d-fb49-47bf-b3c7-e029060d2c96" Title="GetRandom Method " Url="html/ffc31502-5678-597a-3baf-db42146dc6d7.htm">
+    <HelpTOCNode Id="5435003d-92a2-4a6b-8bcb-0c0c8c72a7a7" Title="IntExtensions Class" Url="html/5a50cb53-c500-5ce2-1592-8cb39a333660.htm">
+      <HelpTOCNode Id="95bd9d93-0a94-4422-9bd1-efdc100b0f85" Title="IntExtensions Methods" Url="html/3c4cc8f0-597e-9074-4b5d-fb64b97c74bd.htm">
+        <HelpTOCNode Id="1acb85da-6a62-4194-a39a-331ce116532a" Title="GetRandom Method " Url="html/ffc31502-5678-597a-3baf-db42146dc6d7.htm">
           <HelpTOCNode Title="GetRandom Method (Int32)" Url="html/72dbae52-ddd3-09d1-c01e-a54718be8bfd.htm" />
           <HelpTOCNode Title="GetRandom Method (Int32, Int32)" Url="html/188bcd26-d51a-63f0-9d96-bbeadbcdb26f.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="4a9ab8fa-597a-4c92-952d-fc07724019a3" Title="LongExtensions Class" Url="html/9f9b5b85-3c11-4daa-6c1b-3b3fbdec5a51.htm">
-      <HelpTOCNode Id="1df8a0c3-6049-45bf-a123-2dd910e5a9cf" Title="LongExtensions Methods" Url="html/475f88d0-88bb-89d0-a4b5-d5be4e85ba56.htm">
-        <HelpTOCNode Id="e03b2459-a484-4afd-b69b-9995569bd62d" Title="GetRandom Method " Url="html/136fba9d-3133-6dd1-f257-6e14ab86db0c.htm">
+    <HelpTOCNode Id="5ec1cd12-509f-4f16-817f-97fa26c93c89" Title="LongExtensions Class" Url="html/9f9b5b85-3c11-4daa-6c1b-3b3fbdec5a51.htm">
+      <HelpTOCNode Id="8acb3b0a-ef48-4c23-81b7-c78b655e6959" Title="LongExtensions Methods" Url="html/475f88d0-88bb-89d0-a4b5-d5be4e85ba56.htm">
+        <HelpTOCNode Id="519cc28a-03a0-41de-abdb-5313d78abe60" Title="GetRandom Method " Url="html/136fba9d-3133-6dd1-f257-6e14ab86db0c.htm">
           <HelpTOCNode Title="GetRandom Method (Int64)" Url="html/fe6c823b-4d5a-fc99-83c9-3578fd6f17eb.htm" />
           <HelpTOCNode Title="GetRandom Method (Int64, Int64)" Url="html/f56613e5-8d6a-93b2-8f69-db59da9032b4.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="322c56e4-2dc3-4b05-b8c5-a2835a72a606" Title="ObjectExtensions Class" Url="html/a09cffed-7769-be8f-9808-ede8d37624e5.htm">
-      <HelpTOCNode Id="73eae53c-2b00-4e7c-a5c4-97ac634d14a8" Title="ObjectExtensions Methods" Url="html/c10581ae-3348-44d7-8c24-73101779e77b.htm">
+    <HelpTOCNode Id="1e635611-50d3-4c91-9874-2a96370a10d9" Title="ObjectExtensions Class" Url="html/a09cffed-7769-be8f-9808-ede8d37624e5.htm">
+      <HelpTOCNode Id="1548f692-594f-4a87-8d07-8150f2c2f05e" Title="ObjectExtensions Methods" Url="html/c10581ae-3348-44d7-8c24-73101779e77b.htm">
         <HelpTOCNode Title="ToDateTime Method " Url="html/55560b8a-58dc-7aa2-411c-ad4c76a6b8a2.htm" />
         <HelpTOCNode Title="ToInt32 Method " Url="html/64ddfabd-dd73-2d4d-2dab-68e494eb3a10.htm" />
         <HelpTOCNode Title="ToInt64 Method " Url="html/370a0b4c-cce8-702c-689a-6a7f03652677.htm" />
@@ -89,25 +89,25 @@
         <HelpTOCNode Title="ToNullableInt64 Method " Url="html/f85ba965-1424-148e-6eba-e24a8fcdf8df.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="772b1045-5120-4d6e-a32d-10f79ae6a946" Title="ShortExtensions Class" Url="html/9fe138bb-e20d-dfff-1cdd-a3279cd0ddbb.htm">
-      <HelpTOCNode Id="5e6f2b12-3a70-4866-bd7f-7b69e34be4f7" Title="ShortExtensions Methods" Url="html/0ac06b84-7446-a5fc-9e0a-c13bf53ea9ce.htm">
-        <HelpTOCNode Id="6cc39038-4196-43b1-b5e1-1c35236d99b8" Title="GetRandom Method " Url="html/d6afdedb-8562-67d9-e189-bb1a525fe137.htm">
+    <HelpTOCNode Id="e8073145-4b6e-4ea0-b76e-7a5152537433" Title="ShortExtensions Class" Url="html/9fe138bb-e20d-dfff-1cdd-a3279cd0ddbb.htm">
+      <HelpTOCNode Id="1a48d494-995d-47d0-a871-92765e34adc7" Title="ShortExtensions Methods" Url="html/0ac06b84-7446-a5fc-9e0a-c13bf53ea9ce.htm">
+        <HelpTOCNode Id="6904bf47-e087-4a11-a98e-1caf7ddc1a04" Title="GetRandom Method " Url="html/d6afdedb-8562-67d9-e189-bb1a525fe137.htm">
           <HelpTOCNode Title="GetRandom Method (Int16)" Url="html/17175b7b-216d-d860-f6a4-b8f3a2e477dc.htm" />
           <HelpTOCNode Title="GetRandom Method (Int16, Int16)" Url="html/483743d2-e25b-1d93-7f73-186c787ae400.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="bd8b0396-621d-4e44-9ea8-2bbce7916a91" Title="StringArrayExtensions Class" Url="html/21e361c9-98c1-d90b-8bb3-9dc5221624b6.htm">
-      <HelpTOCNode Id="0df1f733-a9dd-44c1-98d2-3ee19b3e2f4e" Title="StringArrayExtensions Methods" Url="html/8e0c4bc4-0ca4-6e12-521f-66f0679cfb2b.htm">
-        <HelpTOCNode Id="c015bf12-fbe9-4415-b753-d2fde55dd80a" Title="Contains Method " Url="html/25f4bd4c-9328-de00-6374-552dde714af5.htm">
+    <HelpTOCNode Id="0ba398aa-26c7-4768-8f01-20338a3fad44" Title="StringArrayExtensions Class" Url="html/21e361c9-98c1-d90b-8bb3-9dc5221624b6.htm">
+      <HelpTOCNode Id="9f2187be-7b39-40bb-aa6a-de6f98aac1ef" Title="StringArrayExtensions Methods" Url="html/8e0c4bc4-0ca4-6e12-521f-66f0679cfb2b.htm">
+        <HelpTOCNode Id="83097d21-0193-43c9-b159-c6a7e127f0df" Title="Contains Method " Url="html/25f4bd4c-9328-de00-6374-552dde714af5.htm">
           <HelpTOCNode Title="Contains Method (String[], String)" Url="html/361c79c7-232d-b608-98a8-d3d067706db1.htm" />
           <HelpTOCNode Title="Contains Method (String[], String, StringComparison)" Url="html/148c9081-44a8-7ebf-6004-04455ec560bf.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="95debda2-72f9-42b6-b842-8cc16c3d8f9d" Title="StringExtensions Class" Url="html/f3a02f30-3c97-e51e-01eb-dd2e52a4c758.htm">
-      <HelpTOCNode Id="be40b4b7-3721-435a-be14-1c89313b8fb3" Title="StringExtensions Methods" Url="html/fff342d5-0fa7-51f5-bdb4-ccd1d6dbb9e4.htm">
-        <HelpTOCNode Id="38ce0cf1-ae23-4b07-aaaa-798d788d9023" Title="GetRandom Method " Url="html/f4effef3-69b9-4483-f2ee-1832f3a00c49.htm">
+    <HelpTOCNode Id="6a0a5f83-b089-4efe-ab74-d56db30d7235" Title="StringExtensions Class" Url="html/f3a02f30-3c97-e51e-01eb-dd2e52a4c758.htm">
+      <HelpTOCNode Id="a23d32f1-f6cf-4a64-92f9-a7e3f2399081" Title="StringExtensions Methods" Url="html/fff342d5-0fa7-51f5-bdb4-ccd1d6dbb9e4.htm">
+        <HelpTOCNode Id="91aebfb8-57be-477c-a22a-ddf53717d64d" Title="GetRandom Method " Url="html/f4effef3-69b9-4483-f2ee-1832f3a00c49.htm">
           <HelpTOCNode Title="GetRandom Method (String)" Url="html/4c618857-6e64-1c1c-3a84-8a8f4ee282af.htm" />
           <HelpTOCNode Title="GetRandom Method (String, Int32)" Url="html/8f6ed6b0-bf98-1340-36f2-7821038a6863.htm" />
         </HelpTOCNode>

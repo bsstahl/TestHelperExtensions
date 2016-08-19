@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>TestHelperExtensions</id>
-    <version>1.0.1.0</version>
+    <version>1.1.2.0</version>
     <title>TestHelperExtensions</title>
     <authors>Barry S. Stahl</authors>
     <description>
       A set of extension methods helpful when building unit tests. Methods include functionality for creating random data of various types, converting data types, comparing date data, searching within string arrays, etc.
     </description>
     <releaseNotes>
-      Version 1.0.1.0 - Bug fix in Double.GetRandom that occurred when the range of values was very small.
+      Version 1.1.2.0 - Add GetRandom method for Enumerables.
     </releaseNotes>
     <summary>
       Helpful extension methods for building good unit tests.
