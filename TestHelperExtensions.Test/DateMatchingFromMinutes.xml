@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Rows>
+  <Row>
+    <Description>Matches a date less than 1 minute ahead if a 1 minute tolerance specified</Description>
+    <TargetDate>09/24/2015 17:24:05</TargetDate>
+    <CompareToDate>09/24/2015 17:25:04</CompareToDate>
+    <TimespanDays>0</TimespanDays>
+    <TimespanHours>0</TimespanHours>
+    <TimespanMinutes>1</TimespanMinutes>
+    <TimespanSeconds>0</TimespanSeconds>
+    <Result>true</Result>
+  </Row>
+  <Row>
+    <Description>Fails when matching a date less than 1 minute ahead if a 1 minute tolerance specified</Description>
+    <TargetDate>09/24/2015 17:24:05</TargetDate>
+    <CompareToDate>09/24/2015 17:25:06</CompareToDate>
+    <TimespanDays>0</TimespanDays>
+    <TimespanHours>0</TimespanHours>
+    <TimespanMinutes>1</TimespanMinutes>
+    <TimespanSeconds>0</TimespanSeconds>
+    <Result>true</Result>
+  </Row>
+  <Row>
+    <Description>Does not match a date more than 1 minute ahead if a 1 minute tolerance specified</Description>
+    <TargetDate>09/24/2015 17:24:05</TargetDate>
+    <CompareToDate>09/24/2015 17:25:06</CompareToDate>
+    <TimespanDays>0</TimespanDays>
+    <TimespanHours>0</TimespanHours>
+    <TimespanMinutes>1</TimespanMinutes>
+    <TimespanSeconds>0</TimespanSeconds>
+    <Result>false</Result>
+  </Row>
+</Rows>

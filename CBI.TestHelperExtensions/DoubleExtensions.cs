@@ -37,7 +37,7 @@ namespace TestHelperExtensions
         public static double GetRandom(this double maxValue, double minValue)
         {
             if (minValue >= maxValue)
-                throw new ArgumentOutOfRangeException("minValue", "minValue must be less than maxValue");
+                throw new ArgumentOutOfRangeException(nameof(minValue), "minValue must be less than maxValue");
 
             double range = maxValue - minValue;
 

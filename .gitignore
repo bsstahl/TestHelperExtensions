@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CBI.TestHelperExtensions/bin/Debug
+/CBI.TestHelperExtensions/bin/Release/CBI.TestHelperExtensions.dll
+/CBI.TestHelperExtensions/bin/Release
+/CBI.TestHelperExtensions/obj
+/TestHelperExtensions.NuGet/bin
+/TestHelperExtensions.NuGet/obj
+/TestHelperExtensions.Test/bin
+/TestHelperExtensions.Test/obj
+/TestResults
