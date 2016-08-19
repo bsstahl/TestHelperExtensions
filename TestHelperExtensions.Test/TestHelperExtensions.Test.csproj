@@ -66,6 +66,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="EnumerableExtensions_GetRandom_Should.cs" />
+    <Compile Include="Helpers\TestReferenceType.cs" />
     <Compile Include="ShortExtensions_GetRandom_Should.cs" />
     <Compile Include="IntExtensions_GetRandom_Should.cs" />
     <Compile Include="DateTimeExtensions_To100MSPrecision_Should.cs" />

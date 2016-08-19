@@ -15,6 +15,29 @@ namespace TestHelperExtensions
     /// libraries for that production code.</remarks>
     public static class EnumerableExtensions
     {
+
+        /// <summary>
+        /// Returns a random item from the objects in the collection
+        /// </summary>
+        /// <typeparam name="T">Any collectable type</typeparam>
+        /// <param name="values">A list of items from which a random one is to be selected.</param>
+        /// <returns>A random object from within the list of values</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "values")]
+        public static T GetRandom<T>(this IEnumerable<T> values)
+        {
+            T result;
+            int count = values.Count();
+            if (count < 2)
+                result = values.FirstOrDefault();
+            else
+            {
+                var i = count.GetRandom();
+                result = values.Skip(i).First();
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Calculates the population standard deviation of a list of at least 2 values.
         /// </summary>

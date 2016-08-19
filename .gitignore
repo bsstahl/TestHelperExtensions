@@ -3,3 +3,8 @@
 ################################################################################
 
 /CBI.TestHelperExtensions/bin
+/CBI.TestHelperExtensions/obj
+/TestHelperExtensions.NuGet/bin
+/TestHelperExtensions.NuGet/obj
+/TestHelperExtensions.Test/bin
+/TestHelperExtensions.Test/obj
