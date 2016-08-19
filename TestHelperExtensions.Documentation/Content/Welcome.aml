@@ -73,7 +73,7 @@
                   In the drop-downs at the top of the resulting console window, select the package
                   source <legacyItalic>nuget.org</legacyItalic> and be sure that the default project
                   is set to the test project in your solution that you want to use these helper methods with.
-                  You do <legacyBold>not</legacyBold> want to install the extensions into production projects, 
+                  You do <legacyBold>not</legacyBold> want to install the extensions into production projects,
                   just unit test projects.
                 </para>
               </listItem>
@@ -187,9 +187,21 @@
               For example, you can generate a random number between 10 and 100 using the
               statement <legacyItalic>var randomValue = 100.GetRandom(10);</legacyItalic>
             </para>
+
           </listItem>
 
         </list>
+
+        <para>
+          For detailed information on the classes and methods available in this
+          library, see
+          <externalLink>
+            <linkText>TestHelperExtensions Namespace</linkText>
+            <linkUri>3c7900d7-77df-8bfc-ef40-17ae546168aa.htm</linkUri>
+            <linkTarget>_self</linkTarget>
+          </externalLink>
+        </para>
+
       </content>
     </section>
 

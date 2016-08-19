@@ -100,16 +100,16 @@
     <Compile Include="StringExtensions_ToStream_Should.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Fakes Include="Fakes\System.fakes" />
-  </ItemGroup>
-  <ItemGroup>
-    <Fakes Include="Fakes\mscorlib.fakes" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\CBI.TestHelperExtensions\CBI.TestHelperExtensions.csproj">
       <Project>{99141daa-5968-4b2f-95ef-b217eb605b31}</Project>
       <Name>CBI.TestHelperExtensions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Fakes Include="Fakes\System.fakes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Fakes Include="Fakes\mscorlib.fakes" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
