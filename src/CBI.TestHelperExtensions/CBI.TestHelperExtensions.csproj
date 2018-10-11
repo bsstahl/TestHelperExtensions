@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>TestHelperExtensions</RootNamespace>
-    <Version>2.0.0.0</Version>
+    <Version>2.0.1.0</Version>
     <PackageId>TestHelperExtensions</PackageId>
     <Authors>Barry S. Stahl</Authors>
     <Company>CopperByte, Inc.</Company>
@@ -12,7 +12,7 @@
     <PackageProjectUrl>http://github.com/bsstahl/TestHelperExtensions</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/bsstahl/TestHelperExtensions/blob/master/LICENSE</PackageLicenseUrl>
     <PackageTags>testing unit test extensions helper helpers</PackageTags>
-    <PackageReleaseNotes>Version 2.0.0.0 - Now targets the .NET Standard 2.0 interface</PackageReleaseNotes>
+    <PackageReleaseNotes>Version 2.0.1.0 - Added HasSameValues method to the EnumerableExtensions for validating that 2 lists hold the same values.</PackageReleaseNotes>
     <NeutralLanguage>EN-US</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
