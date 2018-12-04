@@ -11,7 +11,7 @@ namespace TestHelperExtensions
     /// libraries for that production code.</remarks>
     public static class IntExtensions
     {
-        private static Random _rnd = new Random();
+        internal static Random _rnd = new Random();
 
         /// <summary>
         /// Returns a random number greater than or equal to 0 and less than the integer
