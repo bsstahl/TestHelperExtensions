@@ -109,6 +109,15 @@ namespace TestHelperExtensions
             return max - min;
         }
 
+        /// <summary>
+        /// Determine if 2 lists hold the same values. The values may be 
+        /// held in any order as long as they are the same in count and value.
+        /// </summary>
+        /// <typeparam name="T">Any comparable data type</typeparam>
+        /// <param name="list1">The initial list of values</param>
+        /// <param name="list2">The list of values to compare to</param>
+        /// <returns>True if the lists contain the same values, false if the
+        /// lists differ in count or values.</returns>
         public static bool HasSameValues<T>(this IEnumerable<T> list1, IEnumerable<T> list2)
         {
             bool result = false;
