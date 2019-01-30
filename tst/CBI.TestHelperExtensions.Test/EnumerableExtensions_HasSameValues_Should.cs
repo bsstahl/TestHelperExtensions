@@ -3,7 +3,7 @@ using Xunit;
 using System.Collections.Generic;
 using TestHelperExtensions;
 
-namespace CBI.TestHelperExtensions.Test
+namespace TestHelperExtensions.Test
 {
     public class EnumerableExtensions_HasSameValues_Should
     {
@@ -63,6 +63,38 @@ namespace CBI.TestHelperExtensions.Test
             int value = Int32.MaxValue.GetRandom();
             var list1 = new List<Int32>() { value };
             var list2 = new List<Int32>() { value, value };
+            Assert.False(list1.HasSameValues(list2));
+        }
+
+        [Fact]
+        public void ReturnFalseIfTheTargetListHasASingleDifferentValue()
+        {
+            int value = Int32.MaxValue.GetRandom();
+            var list1 = new List<Int32>() { Int32.MaxValue.GetRandom() };
+            var list2 = new List<Int32>() { Int32.MaxValue.GetRandom() };
+            Assert.False(list1.HasSameValues(list2));
+        }
+
+        [Fact]
+        public void ReturnFalseIfTheTargetListHasThreeDifferentValues()
+        {
+            int value = Int32.MaxValue.GetRandom();
+            var list1 = new List<Int32>() { Int32.MaxValue.GetRandom(), Int32.MaxValue.GetRandom(), Int32.MaxValue.GetRandom() };
+            var list2 = new List<Int32>() { Int32.MaxValue.GetRandom(), Int32.MaxValue.GetRandom(), Int32.MaxValue.GetRandom() };
+            Assert.False(list1.HasSameValues(list2));
+        }
+
+        [Fact]
+        public void ReturnFalseIfTheTargetListHasTheSameCountButDifferentValues()
+        {
+            int listCount = 99.GetRandom();
+            var list1 = new List<Int32>();
+            var list2 = new List<Int32>();
+            for (int i = 0; i < listCount; i++)
+            {
+                list1.Add(Int32.MaxValue.GetRandom());
+                list2.Add(Int32.MaxValue.GetRandom());
+            }
             Assert.False(list1.HasSameValues(list2));
         }
 

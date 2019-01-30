@@ -109,6 +109,26 @@ namespace TestHelperExtensions
             return max - min;
         }
 
+        public static bool HasSameValues<T>(this IEnumerable<T> list1, IEnumerable<T> list2)
+        {
+            bool result = false;
+            if (list1 != null && list2 != null)
+            {
+                result = (list1.Count() == list2.Count());
+                if (result)
+                {
+                    var sorted1 = list1.OrderBy(l => l).ToArray();
+                    var sorted2 = list2.OrderBy(l => l).ToArray();
 
+                    var i = 0;
+                    while ((i < sorted1.Length) && result)
+                    {
+                        result = (sorted1[i].Equals(sorted2[i]));
+                        i++;
+                    }
+                }
+            }
+            return result;
+        }
     }
 }
