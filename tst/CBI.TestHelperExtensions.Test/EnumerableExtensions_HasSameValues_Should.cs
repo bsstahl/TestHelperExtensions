@@ -95,7 +95,7 @@ namespace TestHelperExtensions.Test
                 list1.Add(Int32.MaxValue.GetRandom());
                 list2.Add(Int32.MaxValue.GetRandom());
             }
-            Assert.False(list1.HasSameValues(list2));
+            Assert.False(list1.HasSameValues(list2), $"Count = {list1.Count}");
         }
 
         [Fact]

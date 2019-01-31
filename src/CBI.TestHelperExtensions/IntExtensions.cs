@@ -11,8 +11,6 @@ namespace TestHelperExtensions
     /// libraries for that production code.</remarks>
     public static class IntExtensions
     {
-        internal static Random _rnd = new Random();
-
         /// <summary>
         /// Returns a random number greater than or equal to 0 and less than the integer
         /// </summary>
@@ -31,7 +29,7 @@ namespace TestHelperExtensions
         /// <returns>A random integer</returns>
         public static int GetRandom(this int maxValue, int minValue)
         {
-            return _rnd.Next(minValue, maxValue);
+            return RandomNumberGenerator.Create().Next(minValue, maxValue);
         }
 
     }

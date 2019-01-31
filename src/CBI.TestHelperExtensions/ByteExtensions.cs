@@ -11,8 +11,6 @@ namespace TestHelperExtensions
     /// libraries for that production code.</remarks>
     public static class ByteExtensions
     {
-        internal static Random _rnd = new Random();
-
         /// <summary>
         /// Returns a random number greater than or equal to 0 and less 
         /// than the specified maxValue
@@ -38,7 +36,7 @@ namespace TestHelperExtensions
         /// of a byte is 255 and the specified maxValue is non-inclusive.</remarks>
         public static byte GetRandom(this byte maxValue, byte minValue)
         {
-            return Convert.ToByte(_rnd.Next(minValue, maxValue));
+            return Convert.ToByte(RandomNumberGenerator.Create().Next(minValue, maxValue));
         }
 
     }

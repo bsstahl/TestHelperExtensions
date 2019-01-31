@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Linq;
 using Xunit;
+using TestHelperExtensions.Test.Helpers;
 
 namespace TestHelperExtensions.Test
 {
-    
+
     public class ByteExtensions_GetRandom_Should
     {
+
+        const int _executionCount = 1000;
 
         #region Interaction Tests
 
@@ -26,51 +29,45 @@ namespace TestHelperExtensions.Test
         [Fact]
         public void AlwaysBeBelowTheUpperBound()
         {
-            var random = new Random();
-            var maxAllowed = Convert.ToByte(random.Next(200, 230));
-
-            var result = 100000.GetRandomByteValues(maxAllowed, 0);
-            var maxValue = result.Max();
-
-            Console.WriteLine("max value:{0} max allowed:{1}", maxValue, maxAllowed);
-            Assert.True(maxValue < maxAllowed);
+            var maxAllowed = Convert.ToByte(Randomizer.Create().Next(200, 230));
+            for (int i = 0; i < _executionCount; i++)
+            {
+                var value = maxAllowed.GetRandom(0);
+                string message = string.Format("value:{0}, max allowed:{1}", value, maxAllowed);
+                Assert.True(value < maxAllowed, message);
+            }
         }
 
         [Fact]
         public void AlwaysBeAboveOrEqualToTheLowerBound()
         {
-            var random = new Random();
-            var minAllowed = Convert.ToByte(random.Next(10, 30));
-
-            var result = 100000.GetRandomByteValues(byte.MaxValue, minAllowed);
-            var minValue = result.Min();
-
-            Console.WriteLine("min value:{0} min allowed:{1}", minValue, minAllowed);
-            Assert.True(minValue >= minAllowed);
+            var minAllowed = Convert.ToByte(Randomizer.Create().Next(10, 30));
+            for (int i = 0; i < _executionCount; i++)
+            {
+                var value = byte.MaxValue.GetRandom(minAllowed);
+                string message = string.Format("value:{0} min allowed:{1}", value, minAllowed);
+                Assert.True(value >= minAllowed);
+            }
         }
 
         [Fact]
         public void AlwaysBeAboveOrEqualToZeroIfNoLowerBoundSpecified()
         {
-            const int executionCount = 10000;
-            var random = new Random();
-
-            byte upperBound = Convert.ToByte(byte.MaxValue - Convert.ToByte(random.Next(100)));
+            byte upperBound = Convert.ToByte(byte.MaxValue - Convert.ToByte(Randomizer.Create().Next(100)));
             Console.WriteLine("UpperBound={0}", upperBound);
 
-            for (int i = 0; i < executionCount; i++)
+            for (int i = 0; i < _executionCount; i++)
             {
                 var actual = upperBound.GetRandom();
-                Console.WriteLine("Actual={0}", actual);
-                Assert.True(actual >= 0);
+                string message = string.Format("Actual={0}", actual);
+                Assert.True(actual >= 0, message);
             }
         }
 
         [Fact]
         public void ThrowExceptionIfLowerBoundIsNotBelowTheUpperBound()
         {
-            var random = new Random();
-            var minAllowed = Convert.ToByte(random.Next(10, 30));
+            var minAllowed = Convert.ToByte(Randomizer.Create().Next(10, 30));
             var maxAllowed = minAllowed - 5;
             Assert.Throws<ArgumentOutOfRangeException>(() => maxAllowed.GetRandom(minAllowed));
         }
@@ -87,63 +84,56 @@ namespace TestHelperExtensions.Test
         {
             const byte lowerBound = 0;
             const byte upperBound = 255;
-            const double tolerance = .02;
+            const double tolerance = .1;
 
-            var expectedMean = Convert.ToByte(((upperBound - 1) - lowerBound) / 2) + lowerBound;
-            var slop = Convert.ToByte(expectedMean * tolerance);
+            var range = upperBound - lowerBound;
+            var expectedMean = (range / 2) + lowerBound;
+            var slop = expectedMean * tolerance;
             var minMean = expectedMean - slop;
             var maxMean = expectedMean + slop;
 
-            var result = 100000.GetRandomByteValues(upperBound, lowerBound); //.GetValuesDistribution();
-            var actualMean = result.Average(v => Convert.ToInt32(v));
+            double sum = 0.0;
+            for (int i = 0; i < _executionCount; i++)
+            {
+                var value = upperBound.GetRandom(lowerBound);
+                sum += value;
+            }
 
-            Console.WriteLine("mean:{0} min allowed:{1} max allowed:{2}", actualMean, minMean, maxMean);
-            Assert.True(actualMean > minMean);
-            Assert.True(actualMean < maxMean);
-        }
+            var actualMean = sum / _executionCount;
+            string message = string.Format("mean:{0}, min allowed:{1}, max allowed:{2}", actualMean, minMean, maxMean);
+            Assert.True(actualMean > minMean, message);
+            Assert.True(actualMean < maxMean, message);
 
-        [Fact]
-        public void HaveAMedianResultNearTheMiddleOfTheRange()
-        {
-            const byte lowerBound = 0;
-            const byte upperBound = 255;
-            const double tolerance = .02;
-
-            var expectedMedian = Convert.ToByte(((upperBound - 1) - lowerBound) / 2) + lowerBound;
-            var slop = Convert.ToByte(expectedMedian * tolerance);
-            var minMedian = expectedMedian - slop;
-            var maxMedian = expectedMedian + slop;
-
-            var result = 100000.GetRandomByteValues(upperBound, lowerBound);
-            var actualMedian = result.Median();
-
-            Console.WriteLine("median:{0} min allowed:{1} max allowed:{2}", actualMedian, minMedian, maxMedian);
-            Assert.True(actualMedian > minMedian);
-            Assert.True(actualMedian < maxMedian);
         }
 
         [Fact]
         public void GetResultsAcrossTheEntireRangeOfTheRequest()
         {
-            const double tolerance = .02;
-            var random = new Random();
+            const double tolerance = .1;
+            Random rnd = Randomizer.Create();
 
-            byte upperBound = Convert.ToByte(byte.MaxValue - Convert.ToByte(random.Next(100)));
-            byte lowerBound = Convert.ToByte(byte.MinValue + Convert.ToByte(random.Next(100)));
+            byte upperBound = Convert.ToByte(byte.MaxValue - Convert.ToByte(rnd.Next(100)));
+            byte lowerBound = Convert.ToByte(byte.MinValue + Convert.ToByte(rnd.Next(100)));
 
             double expectedRange = upperBound - lowerBound;
-            var slop = Convert.ToByte(expectedRange * tolerance);
-            var minRange = expectedRange - slop;
-            var maxRange = expectedRange + slop;
+            var slop = expectedRange * tolerance;
 
+            var maxLowValue = lowerBound + slop;
+            var minHighValue = upperBound - slop;
 
-            var result = 100000.GetRandomByteValues(upperBound, lowerBound);
-            var actualRange = result.Range();
+            var lowestValue = upperBound;
+            var highestValue = lowerBound;
 
-            Console.WriteLine("range:{0} min allowed:{1} max allowed:{2}", actualRange, minRange, maxRange);
-            Assert.True(actualRange > minRange);
-            Assert.True(actualRange < maxRange);
+            for (int i = 0; i < _executionCount; i++)
+            {
+                var value = upperBound.GetRandom(lowerBound);
+                if (value < lowestValue) lowestValue = value;
+                if (value > highestValue) highestValue = value;
+            }
 
+            string message = string.Format("lowestValue:{0}, highestValue:{1}, maxLowValue:{2}, minHighValue:{3}, lowerBound:{4}, upperBound:{5}", lowestValue, highestValue, maxLowValue, minHighValue, lowerBound, upperBound);
+            Assert.True(lowestValue < maxLowValue, message);
+            Assert.True(highestValue > minHighValue, message);
         }
 
 

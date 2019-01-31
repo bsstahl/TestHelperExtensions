@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Linq;
 using Xunit;
-using TestHelperExtensions;
+using TestHelperExtensions.Test.Helpers;
+using System.Text;
 
 namespace TestHelperExtensions.Test
 {
 
     public class DoubleExtensions_GetRandom_Should
     {
+        const int _executionCount = 5000;
 
         #region Rules Tests
 
@@ -24,80 +26,58 @@ namespace TestHelperExtensions.Test
         [Fact]
         public void AlwaysBeAboveOrEqualToTheLowerBound()
         {
-            const int executionCount = 10000;
-            var random = new Random();
+            var rnd = Randomizer.Create();
 
-            double upperBound = Convert.ToDouble(Int32.MaxValue) + Convert.ToDouble(random.Next(Int32.MaxValue) + random.NextDouble());
-            double lowerBound = upperBound - (2 * Convert.ToDouble(random.Next(Int32.MaxValue))) - random.NextDouble();
+            double upperBound = Convert.ToDouble(Int32.MaxValue) + Convert.ToDouble(rnd.Next(Int32.MaxValue) + rnd.NextDouble());
+            double lowerBound = upperBound - (2 * Convert.ToDouble(rnd.Next(Int32.MaxValue))) - rnd.NextDouble();
             Console.WriteLine("LowerBound={0} UpperBound={1}", lowerBound, upperBound);
 
-            for (int i = 0; i < executionCount; i++)
+            for (int i = 0; i < _executionCount; i++)
             {
                 var actual = upperBound.GetRandom(lowerBound);
-                Console.WriteLine("Actual={0}", actual);
-                Assert.True(actual >= lowerBound);
+                string message = string.Format("Actual={0}", actual);
+                Assert.True(actual >= lowerBound, message);
             }
         }
 
         [Fact]
         public void NotReachTheUpperBound()
         {
-            const int executionCount = 10000;
-            var random = new Random();
+            var rnd = Randomizer.Create();
 
-            double upperBound = Convert.ToDouble(Int32.MaxValue) + Convert.ToDouble(random.Next(Int32.MaxValue) + random.NextDouble());
-            double lowerBound = upperBound - Convert.ToDouble(random.Next(Int32.MaxValue)) - random.NextDouble();
-            Console.WriteLine("LowerBound={0} UpperBound={1}", lowerBound, upperBound);
+            double upperBound = Convert.ToDouble(Int32.MaxValue) + Convert.ToDouble(rnd.Next(Int32.MaxValue) + rnd.NextDouble());
+            double lowerBound = upperBound - Convert.ToDouble(rnd.Next(Int32.MaxValue)) - rnd.NextDouble();
 
-            for (int i = 0; i < executionCount; i++)
+            for (int i = 0; i < _executionCount; i++)
             {
                 var actual = upperBound.GetRandom(lowerBound);
-                Console.WriteLine("Actual={0}", actual);
-                Assert.True(actual < upperBound);
+                string message = string.Format("LowerBound={0}, UpperBound={1}, Actual={2}", lowerBound, upperBound, actual);
+                Assert.True(actual < upperBound, message);
             }
         }
 
         [Fact]
         public void NotReachTheUpperBoundIfAValueGreaterThanALongIsSpecified()
         {
-            const int executionCount = 10000;
-            var random = new Random();
+            var rnd = Randomizer.Create();
 
-            double upperBound = Convert.ToDouble(Int64.MaxValue) + Convert.ToDouble(random.Next(Int16.MaxValue) + random.NextDouble());
-            double lowerBound = upperBound - Convert.ToDouble(random.Next(Int32.MaxValue)) - random.NextDouble();
-            Console.WriteLine("LowerBound={0} UpperBound={1}", lowerBound, upperBound);
+            double upperBound = Convert.ToDouble(Int64.MaxValue) + Convert.ToDouble(rnd.Next(Int16.MaxValue) + rnd.NextDouble());
+            double lowerBound = upperBound - Convert.ToDouble(rnd.Next(Int32.MaxValue)) - rnd.NextDouble();
 
-            for (int i = 0; i < executionCount; i++)
+            for (int i = 0; i < _executionCount; i++)
             {
                 var actual = upperBound.GetRandom(lowerBound);
-                Console.WriteLine("Actual={0}", actual);
-                Assert.True(actual < upperBound);
-            }
-        }
-
-        [Fact]
-        public void AlwaysBeAboveOrEqualToZeroIfNoLowerBoundSpecified()
-        {
-            const int executionCount = 10000;
-            var random = new Random();
-
-            double upperBound = Convert.ToDouble(Int32.MaxValue) + Convert.ToDouble(random.Next(Int32.MaxValue) + random.NextDouble());
-            Console.WriteLine("UpperBound={0}", upperBound);
-
-            for (int i = 0; i < executionCount; i++)
-            {
-                var actual = upperBound.GetRandom();
-                Console.WriteLine("Actual={0}", actual);
-                Assert.True(actual >= 0);
+                string message = string.Format("LowerBound={0}, UpperBound={1}, Actual={2}", lowerBound, upperBound, actual);
+                Assert.True(actual < upperBound, message);
             }
         }
 
         [Fact]
         public void ThrowExceptionIfLowerBoundIsNotBelowTheUpperBound()
         {
-            var random = new Random();
-            double upperBound = Convert.ToDouble(Int64.MaxValue) + Convert.ToDouble(random.Next(Int16.MaxValue) + random.NextDouble());
-            double lowerBound = upperBound + Convert.ToDouble(random.Next(Int32.MaxValue)) - random.NextDouble();
+            var rnd = Randomizer.Create();
+            double upperBound = Convert.ToDouble(Int64.MaxValue) + Convert.ToDouble(rnd.Next(Int16.MaxValue) + rnd.NextDouble());
+            double lowerBound = upperBound + Convert.ToDouble(rnd.Next(Int32.MaxValue)) - rnd.NextDouble();
             Assert.Throws<ArgumentOutOfRangeException>(() => upperBound.GetRandom(lowerBound));
         }
 
@@ -112,15 +92,13 @@ namespace TestHelperExtensions.Test
         [Fact]
         public void SpanTheFullRangeOfValuesIfTheRangeIsLessThanOne()
         {
-            const int executionCount = 10000;
-
             double upperBound = 2.9;
             double lowerBound = 2.1;
 
             double minValue = upperBound;
             double maxValue = lowerBound;
 
-            for (int i = 0; i < executionCount; i++)
+            for (int i = 0; i < _executionCount; i++)
             {
                 var result = upperBound.GetRandom(lowerBound);
                 if (result < minValue)
@@ -143,139 +121,102 @@ namespace TestHelperExtensions.Test
         [Fact]
         public void HaveAnAverageResultNearTheMiddleOfTheRange()
         {
-            const double tolerance = .02;
-            var random = new Random();
+            const double tolerance = .1;
+            var rnd = Randomizer.Create();
 
-            double upperBound = Convert.ToDouble(Int16.MaxValue) + Convert.ToDouble(random.Next(Int16.MaxValue) + random.NextDouble());
-            double lowerBound = upperBound - (2 * Convert.ToDouble(random.Next(Int16.MaxValue))) - random.NextDouble();
+            double upperBound = Int16.MaxValue + rnd.Next(Int16.MaxValue) + rnd.NextDouble();
+            double range = rnd.Next(Int16.MaxValue) + rnd.Next();
+            double lowerBound = upperBound - range;
 
-            var expectedMean = Convert.ToDouble((upperBound - lowerBound) / 2) + lowerBound;
-            var slop = Convert.ToInt64(expectedMean * tolerance);
-            var minMean = expectedMean - slop;
-            var maxMean = expectedMean + slop;
-
-            var result = 100000.GetRandomDoubleValues(upperBound, lowerBound);
-            var actualMean = result.Average();
-
-            Console.WriteLine("mean:{0} min allowed:{1} max allowed:{2} lower bound:{3} upper bound:{4}", actualMean, minMean, maxMean, lowerBound, upperBound);
-            Assert.True(actualMean > minMean);
-            Assert.True(actualMean < maxMean);
-        }
-
-        [Fact]
-        public void HaveAMedianResultNearTheMiddleOfTheRange()
-        {
-            const double tolerance = .02;
-            var random = new Random();
-
-            double upperBound = Convert.ToDouble(Int16.MaxValue) + Convert.ToDouble(random.Next(Int16.MaxValue) + random.NextDouble());
-            double lowerBound = upperBound - (2 * Convert.ToDouble(random.Next(Int16.MaxValue))) - random.NextDouble();
-
-            var expectedMedian = Convert.ToDouble((upperBound - lowerBound) / 2) + lowerBound;
-            var slop = Convert.ToDouble(expectedMedian * tolerance);
-            var minMedian = expectedMedian - Math.Abs(slop);
-            var maxMedian = expectedMedian + Math.Abs(slop);
-
-            var result = 100000.GetRandomDoubleValues(upperBound, lowerBound);
-            var actualMedian = result.Median();
-
-            Console.WriteLine("median:{0} min allowed:{1} max allowed:{2}", actualMedian, minMedian, maxMedian);
-            Assert.True(actualMedian > minMedian);
-            Assert.True(actualMedian < maxMedian);
+            ValidateAverageResultNearTheMiddleOfTheRange(upperBound, lowerBound, tolerance);
         }
 
         [Fact]
         public void GetResultsAcrossTheEntireRangeOfTheRequest()
         {
-            const double tolerance = .02;
-            var random = new Random();
+            const double tolerance = .1;
+            var rnd = Randomizer.Create();
 
-            double upperBound = Convert.ToDouble(Int16.MaxValue) + Convert.ToDouble(random.Next(Int16.MaxValue) + random.NextDouble());
-            double lowerBound = upperBound - (2 * Convert.ToDouble(random.Next(Int16.MaxValue))) - random.NextDouble();
+            double upperBound = Convert.ToDouble(Int16.MaxValue) + Convert.ToDouble(rnd.Next(Int16.MaxValue) + rnd.NextDouble());
+            double lowerBound = upperBound - (2 * Convert.ToDouble(rnd.Next(Int16.MaxValue))) - rnd.NextDouble();
 
-            double expectedRange = upperBound - lowerBound;
-            var slop = Convert.ToDouble(expectedRange * tolerance);
-            var minRange = expectedRange - slop;
-            var maxRange = expectedRange + slop;
-
-
-            var result = 100000.GetRandomDoubleValues(upperBound, lowerBound);
-            var actualRange = result.Range();
-
-            Console.WriteLine("range:{0} min allowed:{1} max allowed:{2}", actualRange, minRange, maxRange);
-            Assert.True(actualRange > minRange);
-            Assert.True(actualRange < maxRange);
-
+            ValidateResultsAcrossTheEntireRangeOfTheRequest(lowerBound, upperBound, tolerance);
         }
 
         [Fact]
         public void HaveAnAverageResultNearTheMiddleOfTheRangeForASmallRange()
         {
             const double tolerance = .02;
-            var random = new Random();
+            var rnd = Randomizer.Create();
 
-            double upperBound = random.NextDouble() * Convert.ToDouble(random.Next(byte.MaxValue));
-            double lowerBound = upperBound - random.NextDouble();
+            double upperBound = rnd.NextDouble() * Convert.ToDouble(rnd.Next(byte.MaxValue));
+            double lowerBound = upperBound - rnd.NextDouble();
 
-            var expectedMean = Convert.ToDouble((upperBound - lowerBound) / 2) + lowerBound;
-            var slop = Convert.ToInt64(expectedMean * tolerance);
-            var minMean = Math.Round(expectedMean - slop, 2);
-            var maxMean = Math.Round(expectedMean + slop, 2);
-
-            var result = 100000.GetRandomDoubleValues(upperBound, lowerBound);
-            var actualMean = Math.Round(result.Average(), 2);
-
-            Console.WriteLine("mean:{0} min allowed:{1} max allowed:{2} lower bound:{3} upper bound:{4}", actualMean, minMean, maxMean, lowerBound, upperBound);
-            Assert.True(actualMean >= minMean);
-            Assert.True(actualMean <= maxMean);
-        }
-
-        [Fact]
-        public void HaveAMedianResultNearTheMiddleOfTheRangeForASmallRange()
-        {
-            const double tolerance = .001;
-            var random = new Random();
-
-            double upperBound = random.NextDouble() * Convert.ToDouble(random.Next(byte.MaxValue));
-            double lowerBound = upperBound - random.NextDouble();
-
-            var expectedMedian = Convert.ToDouble((upperBound - lowerBound) / 2) + lowerBound;
-            var slop = Convert.ToDouble(expectedMedian * tolerance);
-            var minMedian = expectedMedian - Math.Abs(slop);
-            var maxMedian = expectedMedian + Math.Abs(slop);
-
-            var result = 100000.GetRandomDoubleValues(upperBound, lowerBound);
-            var actualMedian = result.Median();
-
-            Console.WriteLine("median:{0} min allowed:{1} max allowed:{2}", actualMedian, minMedian, maxMedian);
-            Assert.True(actualMedian > minMedian);
-            Assert.True(actualMedian < maxMedian);
+            ValidateAverageResultNearTheMiddleOfTheRange(upperBound, lowerBound, tolerance);
         }
 
         [Fact]
         public void GetResultsAcrossTheEntireRangeOfTheRequestForASmallRange()
         {
-            const double tolerance = .001;
-            var random = new Random();
+            const double tolerance = .1;
+            var rnd = Randomizer.Create();
 
-            double upperBound = random.NextDouble() * Convert.ToDouble(random.Next(byte.MaxValue));
-            double lowerBound = upperBound - random.NextDouble();
+            double upperBound = rnd.NextDouble() * Convert.ToDouble(rnd.Next(byte.MaxValue));
+            double lowerBound = upperBound - rnd.NextDouble();
 
-            double expectedRange = upperBound - lowerBound;
-            var slop = Convert.ToDouble(expectedRange * tolerance);
-            var minRange = expectedRange - slop;
-            var maxRange = expectedRange + slop;
-
-            var result = 100000.GetRandomDoubleValues(upperBound, lowerBound);
-            var actualRange = result.Range();
-
-            Console.WriteLine("range:{0} min allowed:{1} max allowed:{2}", actualRange, minRange, maxRange);
-            Assert.True(actualRange > minRange);
-            Assert.True(actualRange < maxRange);
-
+            ValidateResultsAcrossTheEntireRangeOfTheRequest(lowerBound, upperBound, tolerance);
         }
 
         #endregion
 
+
+        #region Helper Methods
+
+        private static void ValidateAverageResultNearTheMiddleOfTheRange(double upperBound, double lowerBound, double tolerance)
+        {
+            var range = upperBound - lowerBound;
+            var expectedMean = (range / 2) + lowerBound;
+            var slop = range * tolerance;
+            var minMean = expectedMean - slop;
+            var maxMean = expectedMean + slop;
+
+            double sum = 0.0;
+            for (int i = 0; i < _executionCount; i++)
+            {
+                var value = upperBound.GetRandom(lowerBound);
+                sum += value;
+            }
+
+            var actualMean = sum / _executionCount;
+
+            string message = string.Format("mean:{0} min allowed:{1} max allowed:{2} lower bound:{3} upper bound:{4}", actualMean, minMean, maxMean, lowerBound, upperBound);
+            Assert.True(actualMean > minMean, message);
+            Assert.True(actualMean < maxMean, message);
+        }
+
+        private static void ValidateResultsAcrossTheEntireRangeOfTheRequest(double lowerBound, double upperBound, double tolerance)
+        {
+            double expectedRange = upperBound - lowerBound;
+            var slop = Convert.ToDouble(expectedRange * tolerance);
+
+            var maxLowValue = lowerBound + slop;
+            var minHighValue = upperBound - slop;
+
+            var minValue = upperBound;
+            var maxValue = lowerBound;
+
+            for (int i = 0; i < _executionCount; i++)
+            {
+                var value = upperBound.GetRandom(lowerBound);
+                if (value < minValue) minValue = value;
+                if (value > maxValue) maxValue = value;
+            }
+
+            string message = string.Format("minValue:{0}, maxValue:{1}, maxLowValue:{2}, minHighValue:{3}, lowerBound:{4}, upperBound:{5}", minValue, maxValue, maxLowValue, minHighValue, lowerBound, upperBound);
+            Assert.True(minValue < maxLowValue, message);
+            Assert.True(maxValue > minHighValue, message);
+        }
+
+        #endregion
     }
 }

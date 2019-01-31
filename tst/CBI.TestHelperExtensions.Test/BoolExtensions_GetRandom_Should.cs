@@ -13,6 +13,7 @@ namespace TestHelperExtensions.Test
     
     public class BoolExtensions_GetRandom_Should
     {
+        const int _executionCount = 5000;
 
         [Fact]
         public void ProduceAFalseIfTheRandomValueIsZero()
@@ -93,20 +94,19 @@ namespace TestHelperExtensions.Test
         [Fact]
         public void ReturnRoughlyFiftyPercentTrue()
         {
-            const int totalExecutions = 10000;
             const double tolerance = 0.20;
 
             int trueCount = 0;
             bool actual = false;
-            for (int i = 0; i < totalExecutions; i++)
+            for (int i = 0; i < _executionCount; i++)
             {
                 actual = actual.GetRandom();
                 if (actual)
                     trueCount++;
             }
 
-            int deltaCount = Convert.ToInt32(totalExecutions * tolerance);
-            int halfCount = Convert.ToInt32(totalExecutions / 2);
+            int deltaCount = Convert.ToInt32(_executionCount * tolerance);
+            int halfCount = Convert.ToInt32(_executionCount / 2);
             int minCount = halfCount - deltaCount;
             int maxCount = halfCount + deltaCount;
 

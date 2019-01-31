@@ -12,8 +12,6 @@ namespace TestHelperExtensions
     /// libraries for that production code.</remarks>
     public static class BoolExtensions
     {
-        private static Random _rnd = new Random();
-
         /// <summary>
         /// Returns a random boolean value (true or false)
         /// </summary>
@@ -23,7 +21,7 @@ namespace TestHelperExtensions
         /// <returns>A boolean containing a random value.</returns>
         public static bool GetRandom(this bool ignored)
         {
-            double value = _rnd.NextDouble();
+            double value = RandomNumberGenerator.Create().NextDouble();
             Debug.Assert(value < 1.0);
             Debug.Assert(value >= 0);
             return ignored.GetRandom(value);

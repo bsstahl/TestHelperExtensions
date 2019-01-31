@@ -11,12 +11,15 @@ namespace TestHelperExtensions.Test
         [Fact]
         public void SelectEachItemAtLeastOnceIfRunEnoughTimes()
         {
-            const int executionCount = 1000;
+            const int maxExecutionCount = 10000;
             var values = new int[] { 0, 1, 2 };
             var results = new int[] { 0, 0, 0 };
-            for (int i = 0; i < executionCount; i++)
+
+            int i = 0;
+            while ((i < maxExecutionCount) && (results.Any(r => r == 0)))
             {
                 results[values.GetRandom()]++;
+                i++;
             }
 
             Assert.DoesNotContain(results, r => r == 0);
