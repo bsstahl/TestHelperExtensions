@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -108,7 +107,41 @@ namespace TestHelperExtensions
             return Regex.IsMatch(value, pattern);
         }
 
+        /// <summary>
+        /// Repeats the specified string a number of times
+        /// </summary>
+        /// <param name="value">The string to be repeated</param>
+        /// <param name="numberOfRepetitions">The number of times to repeat the string</param>
+        /// <returns>A string that represents the original string repeated the proper number of times</returns>
+        public static string Repeat(this string value, int numberOfRepetitions)
+        {
+            return value.Repeat(numberOfRepetitions, null);
+        }
 
+        /// <summary>
+        /// Repeats the specified string a number of times, each
+        /// instance separated by the separator string
+        /// </summary>
+        /// <param name="value">The string to be repeated</param>
+        /// <param name="numberOfRepetitions">The number of times to repeat the string</param>
+        /// <param name="separator">The string to be placed in between instances of the 
+        /// original value in the output</param>
+        /// <returns>A string that represents the original string repeated the 
+        /// proper number of times, separated by the separator string</returns>
+        public static string Repeat(this string value, int numberOfRepetitions, string separator)
+        {
+            if (value is null)
+                throw new ArgumentNullException(nameof(value));
 
+            var sb = new StringBuilder();
+            for (int i = 0; i < numberOfRepetitions; i++)
+            {
+                sb.Append(value);
+                if (i < (numberOfRepetitions - 1))
+                    sb.Append(separator);
+            }
+
+            return sb.ToString();
+        }
     }
 }
