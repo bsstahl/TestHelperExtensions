@@ -139,5 +139,24 @@ namespace TestHelperExtensions
             }
             return result;
         }
+
+        /// <summary>
+        /// Produces a new list with the same items as the original list but in random order
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of the list</typeparam>
+        /// <param name="list">The list to be shuffled</param>
+        /// <returns>An IEnumerable containing elements of the same type as 
+        /// the original IEnumerable but in a random order</returns>
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list)
+        {
+            if (list == null)
+                throw new ArgumentNullException(nameof(list));
+
+            var dict = new Dictionary<Int64, T>();
+            foreach (var item in list)
+                dict.Add(Int64.MaxValue.GetRandom(), item);
+
+            return dict.OrderBy(e => e.Key).Select(e => e.Value);
+        }
     }
 }
