@@ -213,23 +213,13 @@
             but instead is intended to provide functionality in the test
             libraries for that production code.</remarks>
         </member>
-        <member name="F:TestHelperExtensions.DoubleExtensions.RealMaxInt64">
-            <summary>
-            The maximum value convertable from a double to Int64
-            using the standard conversion tools. Anything higher
-            throws an OverflowException.
-            </summary>
-        </member>
         <member name="M:TestHelperExtensions.DoubleExtensions.GetRandom(System.Double)">
             <summary>
             Returns a random number less than the double value
-            and greater than or equal to the larger of 0 or a value
-            roughly Int64.MaxValue less than the upper bound
+            and greater than or equal to 0
             </summary>
             <param name="maxValue">The non-inclusive maximum value for the random number</param>
-            <returns>A random double less than the maxValue and greater than zero.</returns>
-            <remarks>The Int64.MaxValue range requirement is as a result of how
-            random numbers are generated in .NET.</remarks>
+            <returns>A random double less than the maxValue and greater than or equal to zero.</returns>
         </member>
         <member name="M:TestHelperExtensions.DoubleExtensions.GetRandom(System.Double,System.Double)">
             <summary>

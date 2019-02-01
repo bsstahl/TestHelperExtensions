@@ -14,27 +14,15 @@ namespace TestHelperExtensions
     /// libraries for that production code.</remarks>
     public static class DoubleExtensions
     {
-        const byte _defaultDecimalPlaces = 5;
-
-        /// <summary>
-        /// The maximum value convertable from a double to Int64
-        /// using the standard conversion tools. Anything higher
-        /// throws an OverflowException.
-        /// </summary>
-        public const double RealMaxInt64 = 9223372036854775295.0;
-
         /// <summary>
         /// Returns a random number less than the double value
-        /// and greater than or equal to the larger of 0 or a value
-        /// roughly Int64.MaxValue less than the upper bound
+        /// and greater than or equal to 0
         /// </summary>
         /// <param name="maxValue">The non-inclusive maximum value for the random number</param>
-        /// <returns>A random double less than the maxValue and greater than zero.</returns>
-        /// <remarks>The Int64.MaxValue range requirement is as a result of how
-        /// random numbers are generated in .NET.</remarks>
+        /// <returns>A random double less than the maxValue and greater than or equal to zero.</returns>
         public static double GetRandom(this double maxValue)
         {
-            return maxValue.GetRandom(Math.Max(0, maxValue - RealMaxInt64));
+            return maxValue.GetRandom(0);
         }
 
         /// <summary>
@@ -48,18 +36,8 @@ namespace TestHelperExtensions
             if (minValue > maxValue)
                 throw new ArgumentOutOfRangeException(nameof(minValue), $"minValue {minValue} must be less than maxValue {maxValue}");
 
-            if (Convert.ToDouble(Int64.MaxValue).IsWiderThanRange(minValue, maxValue))
-                throw new OverflowException($"The range of values cannot be greater than {RealMaxInt64}. Currently {minValue} - {maxValue}, range = {maxValue - minValue}");
-
             var range = maxValue - minValue;
-            double rangeFloor = System.Math.Floor(range);
-            long rangeBase = Convert.ToInt64(rangeFloor);
-            double rangeMantissa = range - rangeBase;
-
-            double resultMantissa = RandomNumberGenerator.NextDouble() * rangeMantissa;
-            long resultBase = (rangeBase > 0) ? rangeBase.GetRandom() : 0;
-
-            return Convert.ToDouble(resultBase) + Convert.ToDouble(resultMantissa) + minValue;
+            return (RandomNumberGenerator.NextDouble() * range) + minValue;
         }
 
         /// <summary>

@@ -24,12 +24,10 @@
   <HelpKINode Title="DateTimeExtensions.ToSecondPrecision method" Url="html/448a0b72-3aeb-d7ff-5b67-b2ba6ef29aea.htm" />
   <HelpKINode Title="DoubleExtensions class">
     <HelpKINode Title="DoubleExtensions Class" Url="html/c98a1dd9-6164-5373-d61e-92dc1077b62e.htm" />
-    <HelpKINode Title="fields" Url="html/ee6e5a49-e35c-331b-9089-ec96b8eece49.htm" />
     <HelpKINode Title="methods" Url="html/e349c453-6307-6fea-f5fb-74cea44f8ffc.htm" />
   </HelpKINode>
   <HelpKINode Title="DoubleExtensions.GetRandom method" Url="html/219ddbb4-3f68-79e9-677e-90744792d99c.htm" />
   <HelpKINode Title="DoubleExtensions.IsWiderThanRange method" Url="html/4f68998e-4ace-1749-c8c5-7a1ecb2ec7c7.htm" />
-  <HelpKINode Title="DoubleExtensions.RealMaxInt64 field" Url="html/26094d37-52a6-d969-c33a-bd1dcbc76675.htm" />
   <HelpKINode Title="EnumerableExtensions class">
     <HelpKINode Title="EnumerableExtensions Class" Url="html/cee545cd-7c79-779a-cdf6-b7a3bf105d99.htm" />
     <HelpKINode Title="methods" Url="html/cc8621fa-d099-e257-3abb-58a9b9000971.htm" />
@@ -93,7 +91,6 @@
   <HelpKINode Title="ObjectExtensions.ToNullableInt64 method" Url="html/f85ba965-1424-148e-6eba-e24a8fcdf8df.htm" />
   <HelpKINode Title="Range(Of T) method" Url="html/d8329bb2-4e7d-5d5a-2ed8-75211f35e5fc.htm" />
   <HelpKINode Title="Range&lt;T&gt; method" Url="html/d8329bb2-4e7d-5d5a-2ed8-75211f35e5fc.htm" />
-  <HelpKINode Title="RealMaxInt64 field" Url="html/26094d37-52a6-d969-c33a-bd1dcbc76675.htm" />
   <HelpKINode Title="RegexMatch method" Url="html/c9a7905f-913c-fea6-10af-d87666fd861c.htm" />
   <HelpKINode Title="Repeat method" Url="html/2dd4778c-bfdd-5630-2058-e65d4ff9101d.htm" />
   <HelpKINode Title="ShortExtensions class">

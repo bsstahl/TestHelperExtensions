@@ -43,7 +43,7 @@
     <PresentationStyle>VS2013</PresentationStyle>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <HelpTitle>TestHelperExtensions Documentation</HelpTitle>
-    <HelpFileVersion>1.2.0.0</HelpFileVersion>
+    <HelpFileVersion>1.2.0.1</HelpFileVersion>
     <RootNamespaceContainer>False</RootNamespaceContainer>
     <NamespaceGrouping>False</NamespaceGrouping>
     <MaximumGroupParts>2</MaximumGroupParts>
@@ -88,6 +88,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons\Help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\netstandard.library\2.0.3\build\netstandard2.0\ref\netstandard.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <!-- Import the SHFB build targets -->
   <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />

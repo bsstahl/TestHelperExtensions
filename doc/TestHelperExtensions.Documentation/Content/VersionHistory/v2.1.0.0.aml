@@ -3,7 +3,7 @@
   <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
     <introduction>
       <para>
-        Version 2.1.0.0 was released on 2019-01-31.
+        Version 2.1.0 was released on 2019-01-31.
       </para>
     </introduction>
 
@@ -13,7 +13,7 @@
 
         <list class="bullet">
           <listItem>
-            <para>Added an IsWiderThanRange method and a RealMaxInt64 field to the DoubleExtensions.</para>
+            <para>Added an IsWiderThanRange method to the DoubleExtensions.</para>
           </listItem>
 
           <listItem>

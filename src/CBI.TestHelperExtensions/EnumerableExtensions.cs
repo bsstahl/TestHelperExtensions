@@ -154,7 +154,14 @@ namespace TestHelperExtensions
 
             var dict = new Dictionary<Int64, T>();
             foreach (var item in list)
-                dict.Add(Int64.MaxValue.GetRandom(), item);
+            {
+                Int64 key;
+                do
+                    key = Int64.MaxValue.GetRandom();
+                while (dict.ContainsKey(key));
+
+                dict.Add(key, item);
+            }
 
             return dict.OrderBy(e => e.Key).Select(e => e.Value);
         }

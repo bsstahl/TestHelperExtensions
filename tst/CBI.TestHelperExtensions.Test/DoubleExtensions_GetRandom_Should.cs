@@ -90,6 +90,22 @@ namespace TestHelperExtensions.Test
         }
 
         [Fact]
+        public void NotFailIfAllInt64ValuesAreInTheRange()
+        {
+            double lowerBound = Int64.MinValue;
+            double upperBound = Int64.MaxValue;
+            var result = upperBound.GetRandom(lowerBound);
+        }
+
+        [Fact]
+        public void NotFailIfAllPositiveInt64ValuesAreInTheRange()
+        {
+            double lowerBound = 0;
+            double upperBound = Int64.MaxValue;
+            var result = upperBound.GetRandom(lowerBound);
+        }
+
+        [Fact]
         public void SpanTheFullRangeOfValuesIfTheRangeIsLessThanOne()
         {
             double upperBound = 2.9;
@@ -109,6 +125,35 @@ namespace TestHelperExtensions.Test
 
             Assert.Equal(Math.Round(lowerBound, 2), Math.Round(minValue, 2));
             Assert.Equal(Math.Round(upperBound, 2), Math.Round(maxValue, 2));
+        }
+
+        [Fact]
+        public void SpanTheFullRangeOfValuesIfAllInt64ValuesAreInRange()
+        {
+            double tolerance = 0.1;
+
+            double upperBound = Int64.MaxValue;
+            double lowerBound = Int64.MinValue;
+
+            double minValue = upperBound;
+            double maxValue = lowerBound;
+
+            double slop = Int64.MaxValue * tolerance * 2.0;
+            double maxLowestValue = lowerBound + slop;
+            double minHighestValue = upperBound - slop;
+
+            for (int i = 0; i < _executionCount; i++)
+            {
+                var result = upperBound.GetRandom(lowerBound);
+                if (result < minValue)
+                    minValue = result;
+                if (result > maxValue)
+                    maxValue = result;
+            }
+
+            string message = $"minValue:{minValue}, maxValue:{maxValue}, lowerBound:{lowerBound}, upperBound:{upperBound}, maxLowestValue:{maxLowestValue}, minHighestValue:{minHighestValue}";
+            Assert.True(minValue < maxLowestValue, message);
+            Assert.True(maxValue > minHighestValue, message);
         }
 
         #endregion
