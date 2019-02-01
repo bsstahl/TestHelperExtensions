@@ -1,1 +1,1 @@
-<% Response.Redirect("http://testhelperextensions.cognitiveinheritance.com/v1.0.1.0/") %>
+<% Response.Redirect("http://testhelperextensions.cognitiveinheritance.com/v2.1.0.0/") %>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "TestHelperExtensions.Documentation", "doc\TestHelperExtensions.Documentation\TestHelperExtensions.Documentation.shfbproj", "{FED12B52-70E1-40CB-A91F-090CDF9DE2BD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{777FF307-7BAA-4C19-8F43-9F5C11E4FEEF} = {777FF307-7BAA-4C19-8F43-9F5C11E4FEEF}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CBI.TestHelperExtensions", "src\CBI.TestHelperExtensions\CBI.TestHelperExtensions.csproj", "{777FF307-7BAA-4C19-8F43-9F5C11E4FEEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FED12B52-70E1-40CB-A91F-090CDF9DE2BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FED12B52-70E1-40CB-A91F-090CDF9DE2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FED12B52-70E1-40CB-A91F-090CDF9DE2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FED12B52-70E1-40CB-A91F-090CDF9DE2BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{777FF307-7BAA-4C19-8F43-9F5C11E4FEEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{777FF307-7BAA-4C19-8F43-9F5C11E4FEEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{777FF307-7BAA-4C19-8F43-9F5C11E4FEEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{777FF307-7BAA-4C19-8F43-9F5C11E4FEEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3503AA0A-2719-4521-A20D-0040A824CED8}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,583 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CBI.TestHelperExtensions</name>
+    </assembly>
+    <members>
+        <member name="T:TestHelperExtensions.BoolExtensions">
+            <summary>
+            Adds functionality that is often used for 
+            unit testing to the boolean data type
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.BoolExtensions.GetRandom(System.Boolean)">
+            <summary>
+            Returns a random boolean value (true or false)
+            </summary>
+            <param name="ignored">This parameter is used only to determine variable type. By
+            the time we have reached this method, the type has already been determined by
+            the runtime and the parameter is no longer needed.</param>
+            <returns>A boolean containing a random value.</returns>
+        </member>
+        <member name="T:TestHelperExtensions.ByteExtensions">
+            <summary>
+            Adds functionality that is often used for 
+            unit testing to the byte (Int8) data type
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.ByteExtensions.GetRandom(System.Byte)">
+            <summary>
+            Returns a random number greater than or equal to 0 and less 
+            than the specified maxValue
+            </summary>
+            <param name="maxValue">The non-inclusive maximum integer value for 
+            the random number</param>
+            <returns>A random byte</returns>
+            <remarks>255 is not a reachable value here since the maximum value
+            of a byte is 255 and the specified maxValue is non-inclusive.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.ByteExtensions.GetRandom(System.Byte,System.Byte)">
+            <summary>
+            Returns a random number greater than or equal to the 
+            specified minValue and less than the specified maxValue
+            </summary>
+            <param name="maxValue">The non-inclusive maximum integer value for the random number</param>
+            <param name="minValue">the inclusive minimum integer value for the random number</param>
+            <returns>A random byte</returns>
+            <remarks>255 is not a reachable value here since the maximum value
+            of a byte is 255 and the specified maxValue is non-inclusive.</remarks>
+        </member>
+        <member name="T:TestHelperExtensions.DateTimeExtensions">
+            <summary>
+            Adds functionality that is often used for 
+            unit testing to the DateTime data type
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.GetRandom(System.DateTime)">
+            <summary>
+            Returns a random date/time value earlier than the value specified 
+            </summary>
+            <param name="maxValue">The date/time that the random value should fall before.</param>
+            <returns>A DateTime structure representing a random moment in time</returns>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.GetRandom(System.DateTime,System.DateTime)">
+            <summary>
+            Returns a random date/time value between the values specified 
+            </summary>
+            <param name="maxValue">The date/time that the random value should fall before.</param>
+            <param name="minValue">The date/time that the random value should fall after</param>
+            <returns>A DateTime structure representing a random moment in time</returns>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.ToMinutePrecision(System.DateTime)">
+            <summary>
+            Returns the specified DateTime value truncating the precision
+            to the previous minute.
+            </summary>
+            <param name="value">The DateTime value for which precision should be adjusted.</param>
+            <returns>A DateTime value representing the target value modified to be precise only to the minute.</returns>
+            <remarks>Is often used to make DateTime comparisons work better
+            since a difference in precision between 2 DateTime values will 
+            cause comparisons to fail that should otherwise match.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.ToMinutePrecision(System.Nullable{System.DateTime})">
+            <summary>
+            Returns the specified DateTime value truncating the precision
+            to the previous minute.  If the nullable value has no value,
+            a null is returned.
+            </summary>
+            <param name="value">The DateTime value for which precision should be adjusted.</param>
+            <returns>A Nullable DateTime value representing the target value modified to be precise only to the minute.</returns>
+            <remarks>Is often used to make DateTime comparisons work better
+            since a difference in precision between 2 DateTime values will 
+            cause comparisons to fail that should otherwise match.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.ToSecondPrecision(System.DateTime)">
+            <summary>
+            Returns the specified DateTime value truncating the precision
+            to the previous second.
+            </summary>
+            <param name="value">The DateTime value for which precision should be adjusted.</param>
+            <returns>A DateTime value representing the target value modified to be precise only to the second.</returns>
+            <remarks>Is often used to make DateTime comparisons work better
+            since a difference in precision between 2 DateTime values will 
+            cause comparisons to fail that should otherwise match.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.ToSecondPrecision(System.Nullable{System.DateTime})">
+            <summary>
+            Returns the specified DateTime value truncating the precision
+            to the previous second.  If the nullable value has no value,
+            a null is returned.
+            </summary>
+            <param name="value">The DateTime value for which precision should be adjusted.</param>
+            <returns>A Nullable DateTime value representing the target value modified to be precise only to the second.</returns>
+            <remarks>Is often used to make DateTime comparisons work better
+            since a difference in precision between 2 DateTime values will 
+            cause comparisons to fail that should otherwise match.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.To10MSPrecision(System.DateTime)">
+            <summary>
+            Returns the specified DateTime value truncating the precision
+            to the previous 10 millisecond increment.
+            </summary>
+            <param name="value">The DateTime value for which precision should be adjusted.</param>
+            <returns>A DateTime value representing the target value modified to be precise only to 10ms.</returns>
+            <remarks>Is often used to make DateTime comparisons work better
+            since a difference in precision between 2 DateTime values will 
+            cause comparisons to fail that should otherwise match.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.To10MSPrecision(System.Nullable{System.DateTime})">
+            <summary>
+            Returns the specified DateTime value truncating the precision
+            to the previous 10 millisecond increment.  If the nullable value 
+            has no value, a null is returned.
+            </summary>
+            <param name="value">The DateTime value for which precision should be adjusted.</param>
+            <returns>A Nullable DateTime value representing the target value modified to be precise only to 10ms.</returns>
+            <remarks>Is often used to make DateTime comparisons work better
+            since a difference in precision between 2 DateTime values will 
+            cause comparisons to fail that should otherwise match.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.To100MSPrecision(System.DateTime)">
+            <summary>
+            Returns the specified DateTime value truncating the precision
+            to the previous 100 millisecond increment.
+            </summary>
+            <param name="value">The DateTime value for which precision should be adjusted.</param>
+            <returns>A DateTime value representing the target value modified to be precise only to 100ms.</returns>
+            <remarks>Is often used to make DateTime comparisons work better
+            since a difference in precision between 2 DateTime values will 
+            cause comparisons to fail that should otherwise match.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.To100MSPrecision(System.Nullable{System.DateTime})">
+            <summary>
+            Returns the specified DateTime value truncating the precision
+            to the previous 100 millisecond increment.  If the nullable value 
+            has no value, a null is returned.
+            </summary>
+            <param name="value">The DateTime value for which precision should be adjusted.</param>
+            <returns>A Nullable DateTime value representing the target value modified to be precise only to 100ms.</returns>
+            <remarks>Is often used to make DateTime comparisons work better
+            since a difference in precision between 2 DateTime values will 
+            cause comparisons to fail that should otherwise match.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.ToOracleDate(System.DateTime)">
+            <summary>
+            Converts the specified DateTime value into a string that PL/SQL interprets
+            as the DateTime value. This method is often used to create text-based 
+            sql statements for data tier tests against an Oracle database.
+            </summary>
+            <param name="value">The DateTime value for which an Oracle date value should be created.</param>
+            <returns>A string that can be concatenated into a PL/SQL statement representing the specified date.</returns>
+            <remarks>Reminder: these methods are not recommended for use in production code, 
+            just the test of production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.ToOracleDate(System.Nullable{System.DateTime})">
+            <summary>
+            Converts the specified DateTime value into a string that PL/SQL interprets
+            as the DateTime value. If the nullable type has no value, a string containing
+            the text "null" is returned. This method is often used to create text-based 
+            sql statements for data tier tests against an Oracle database.
+            </summary>
+            <param name="value">The DateTime value for which an Oracle date value should be created.</param>
+            <returns>A string that can be concatenated into a PL/SQL statement representing the specified date.</returns>
+            <remarks>Reminder: these methods are not recommended for use in production code, 
+            just the test of production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DateTimeExtensions.EqualWithinTolerance(System.DateTime,System.DateTime,System.TimeSpan)">
+            <summary>
+            Determines if 2 DateTime values contain the same Date and Time to within
+            the specified tolerance. That is, if the tolerance specified is 1 second,
+            the DateTime values would have to be within 1 second of each other to match.
+            </summary>
+            <param name="objectUnderTest">A DateTime representing the primary value being tested.</param>
+            <param name="comparisonValue">A DateTime representing the value being compared to the primary value.</param>
+            <param name="tolerance">A TimeSpan representing the maximum discrepancy between 
+            the 2 values for the DateTime values to be considered a match.</param>
+            <returns>A boolean value indicating if the 2 values are equal within the specified tolerance.</returns>
+        </member>
+        <member name="T:TestHelperExtensions.DoubleExtensions">
+            <summary>
+            Adds functionality that is often used for 
+            unit testing to the Double data type
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="F:TestHelperExtensions.DoubleExtensions.RealMaxInt64">
+            <summary>
+            The maximum value convertable from a double to Int64
+            using the standard conversion tools. Anything higher
+            throws an OverflowException.
+            </summary>
+        </member>
+        <member name="M:TestHelperExtensions.DoubleExtensions.GetRandom(System.Double)">
+            <summary>
+            Returns a random number less than the double value
+            and greater than or equal to the larger of 0 or a value
+            roughly Int64.MaxValue less than the upper bound
+            </summary>
+            <param name="maxValue">The non-inclusive maximum value for the random number</param>
+            <returns>A random double less than the maxValue and greater than zero.</returns>
+            <remarks>The Int64.MaxValue range requirement is as a result of how
+            random numbers are generated in .NET.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.DoubleExtensions.GetRandom(System.Double,System.Double)">
+            <summary>
+            Returns a random number greater than or equal to the specified minValue and less than the maxValue
+            </summary>
+            <param name="maxValue">The non-inclusive maximum value for the random number</param>
+            <param name="minValue">The inclusive minimum value for the random number</param>
+            <returns>A random double in the specified range</returns>
+        </member>
+        <member name="M:TestHelperExtensions.DoubleExtensions.IsWiderThanRange(System.Double,System.Double,System.Double)">
+            <summary>
+            Checks if the minValue and maxValue differ by more than
+            the specified maximum range.
+            </summary>
+            <param name="maxRange">The greatest difference to allow between the two values</param>
+            <param name="minValue">The lower bound of the range</param>
+            <param name="maxValue">The upper bound of the range</param>
+            <returns>True if the difference between the two values is greater than maxRange, False otherwise.</returns>
+        </member>
+        <member name="T:TestHelperExtensions.EnumerableExtensions">
+            <summary>
+            Adds functionality that is often used for 
+            unit testing to all IEnumerables of numeric data types
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.EnumerableExtensions.GetRandom``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns a random item from the objects in the collection
+            </summary>
+            <typeparam name="T">Any collectable type</typeparam>
+            <param name="values">A list of items from which a random one is to be selected.</param>
+            <returns>A random object from within the list of values</returns>
+        </member>
+        <member name="M:TestHelperExtensions.EnumerableExtensions.StdDev``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Calculates the population standard deviation of a list of at least 2 values.
+            </summary>
+            <typeparam name="T">Any numeric data type.</typeparam>
+            <param name="values">A list of numeric values for which the standard deviation is to be determined.</param>
+            <returns>A double containing the population standard deviation of the list of values.</returns>
+        </member>
+        <member name="M:TestHelperExtensions.EnumerableExtensions.Median``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Calculates the median of a list of at least 2 values.
+            </summary>
+            <typeparam name="T">Any numeric data type.</typeparam>
+            <param name="values">A list of numeric values for which the median is to be determined.</param>
+            <returns>A double containing the median value of the list of values.</returns>
+            <remarks>The return type of this method has to be double rather than T because
+            the median has to be interpolated if the list contains an even number of values.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.EnumerableExtensions.Range``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Calculates the range of values of a list of at least 2 values.
+            </summary>
+            <typeparam name="T">Any numeric data type.</typeparam>
+            <param name="values">A list of numeric values for which the range is to be determined.</param>
+            <returns>A double containing the total range of the list of values.</returns>
+            <remarks>The return type of this method has to be double rather than T because
+            the range may cross the maximum positive value for the specified data type. For example,
+            a list of Integers, that goes from -Int32.MaxValue to Int32.MaxValue would have a range
+            of 2*Int32.MaxValue, which is clearly greater then the maximum allowable value of an Int32.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.EnumerableExtensions.HasSameValues``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Determine if 2 lists hold the same values. The values may be 
+            held in any order as long as they are the same in count and value.
+            </summary>
+            <typeparam name="T">Any comparable data type</typeparam>
+            <param name="list1">The initial list of values</param>
+            <param name="list2">The list of values to compare to</param>
+            <returns>True if the lists contain the same values, false if the
+            lists differ in count or values.</returns>
+        </member>
+        <member name="M:TestHelperExtensions.EnumerableExtensions.Shuffle``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Produces a new list with the same items as the original list but in random order
+            </summary>
+            <typeparam name="T">The type of the elements of the list</typeparam>
+            <param name="list">The list to be shuffled</param>
+            <returns>An IEnumerable containing elements of the same type as 
+            the original IEnumerable but in a random order</returns>
+        </member>
+        <member name="T:TestHelperExtensions.ExceptionExtensions">
+            <summary>
+            Adds functionality that is often used for unit testing
+            to the Exception data type and its derived classes
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.ExceptionExtensions.ThrowIf``1(System.Exception,System.Func{``0,System.Boolean},``0)">
+            <summary>
+            Throws the specified exception if the predicate results in a true value
+            based on the parameter supplied
+            </summary>
+            <typeparam name="T">The data type of the parameter</typeparam>
+            <param name="exception">The exception to be thrown (conditionally)</param>
+            <param name="predicate">A function returning a bool containing functionality
+            to determine if the exception should be thrown or not</param>
+            <param name="parameter">The parameter value used in the predicate function</param>
+        </member>
+        <member name="T:TestHelperExtensions.IntExtensions">
+            <summary>
+            Adds functionality that is often used for 
+            unit testing to the Integer (Int32) data type
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.IntExtensions.GetRandom(System.Int32)">
+            <summary>
+            Returns a random number greater than or equal to 0 and less than the integer
+            </summary>
+            <param name="maxValue">The non-inclusive maximum integer value for the random number</param>
+            <returns>A random integer</returns>
+        </member>
+        <member name="M:TestHelperExtensions.IntExtensions.GetRandom(System.Int32,System.Int32)">
+            <summary>
+            Returns a random number greater than or equal to the specified minValue and less than the integer
+            </summary>
+            <param name="maxValue">The non-inclusive maximum integer value for the random number</param>
+            <param name="minValue">the inclusive minimum integer value for the random number</param>
+            <returns>A random integer</returns>
+        </member>
+        <member name="T:TestHelperExtensions.LongExtensions">
+            <summary>
+            Adds functionality that is often used for 
+            unit testing to the Long (Int64) data type
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.LongExtensions.GetRandom(System.Int64)">
+            <summary>
+            Returns a random number greater than or equal to 0 and less than the integer
+            </summary>
+            <param name="maxValue">The non-inclusive maximum integer value for the random number</param>
+            <returns>A random integer</returns>
+        </member>
+        <member name="M:TestHelperExtensions.LongExtensions.GetRandom(System.Int64,System.Int64)">
+            <summary>
+            Returns a random number greater than or equal to the specified minValue and less than the integer
+            </summary>
+            <param name="maxValue">The non-inclusive maximum integer value for the random number</param>
+            <param name="minValue">the inclusive minimum integer value for the random number</param>
+            <returns>A random integer</returns>
+        </member>
+        <member name="T:TestHelperExtensions.ObjectExtensions">
+            <summary>
+            Adds functionality that is often used for 
+            unit testing to the Object data type
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.ObjectExtensions.ToInt32(System.Object)">
+            <summary>
+            Converts the value of the specified object to a 32-bit signed integer, using
+            the current culture formatting information.
+            </summary>
+            <param name="value">An object that implements the System.IConvertible interface.</param>
+            <returns>A 32-bit signed integer that is equivalent to value, or zero if value is null.</returns>
+        </member>
+        <member name="M:TestHelperExtensions.ObjectExtensions.ToInt64(System.Object)">
+            <summary>
+            Converts the value of the specified object to a 64-bit signed integer, using
+            the current culture formatting information.
+            </summary>
+            <param name="value">An object that implements the System.IConvertible interface.</param>
+            <returns>A 64-bit signed integer that is equivalent to value, or zero if value is null.</returns>
+        </member>
+        <member name="M:TestHelperExtensions.ObjectExtensions.ToNullableInt64(System.Object)">
+            <summary>
+            Converts the value of the specified object to a 64-bit signed integer, using
+            the current culture formatting information. If the object has no value, a 
+            null is returned.
+            </summary>
+            <param name="value">An object that implements the System.IConvertible interface.</param>
+            <returns>A nullable 64-bit signed integer that is equivalent to value, or null if value is null.</returns>
+            <remarks>Unfortunately, it appears that DBNull.Value is not available 
+            in some of the portable frameworks so it cannot be tested for here.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.ObjectExtensions.ToDateTime(System.Object)">
+            <summary>
+            Converts the value of the specified object to a System.DateTime object, using
+            the current culture formatting information.
+            </summary>
+            <param name="value">An object that implements the System.IConvertible interface.</param>
+            <returns>
+            The date and time equivalent of the value of value, or the date and time equivalent
+            of System.DateTime.MinValue if value is null.
+            </returns>
+        </member>
+        <member name="M:TestHelperExtensions.ObjectExtensions.ToNullableDateTime(System.Object)">
+            <summary>
+            Converts the value of the specified object to a System.DateTime object, using
+            the current culture formatting information.
+            </summary>
+            <param name="value">An object that implements the System.IConvertible interface.</param>
+            <returns>
+            The date and time equivalent of the value of value, or null if value is null.
+            </returns>
+            <remarks>Unfortunately, DBNull.Value is apparently not available 
+            in some of the portable frameworks so it cannot be tested for here.</remarks>
+        </member>
+        <member name="T:TestHelperExtensions.ShortExtensions">
+            <summary>
+            Adds functionality that is often used for 
+            unit testing to the Short (Int16) data type
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.ShortExtensions.GetRandom(System.Int16)">
+            <summary>
+            Returns a random number greater than or equal to 0 and less than the maxValue
+            </summary>
+            <param name="maxValue">The non-inclusive maximum short value for the random number</param>
+            <returns>A random short</returns>
+        </member>
+        <member name="M:TestHelperExtensions.ShortExtensions.GetRandom(System.Int16,System.Int16)">
+            <summary>
+            Returns a random number greater than or equal to the specified minValue and less than the maxValue
+            </summary>
+            <param name="maxValue">The non-inclusive maximum short value for the random number</param>
+            <param name="minValue">the inclusive minimum short value for the random number</param>
+            <returns>A random short</returns>
+        </member>
+        <member name="T:TestHelperExtensions.StringArrayExtensions">
+            <summary>
+            Adds functionality that is often used for 
+            unit testing to any Array of strings
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.StringArrayExtensions.Contains(System.String[],System.String)">
+            <summary>
+            Determines if any of the items in the specified data array match
+            the specified key using the current culture's string comparison settings.
+            </summary>
+            <param name="dataArray">A list of string values.</param>
+            <param name="key">The value being searched for in the list of strings.</param>
+            <returns>A boolean indicating if the key value was found in the list of values.</returns>
+        </member>
+        <member name="M:TestHelperExtensions.StringArrayExtensions.Contains(System.String[],System.String,System.StringComparison)">
+            <summary>
+            Determines if any of the items in the specified data array match
+            the specified key using specified string comparison settings.
+            </summary>
+            <param name="dataArray">A list of string values.</param>
+            <param name="key">The value being searched for in the list of strings.</param>
+            <param name="comparisonType">Specifies the culture, case, and sort rules to be used during string comparison.</param>
+            <returns>A boolean indicating if the key value was found in the list of values.</returns>
+        </member>
+        <member name="T:TestHelperExtensions.StringExtensions">
+            <summary>
+            Adds functionality that is often used for 
+            unit testing to the string data type
+            </summary>
+            <remarks>This library is not intended for use as production code,
+            but instead is intended to provide functionality in the test
+            libraries for that production code.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.StringExtensions.GetRandom(System.String)">
+            <summary>
+            Returns a random string of 8 characters
+            </summary>
+            <param name="ignored">This parameter is used only to determine variable type. By
+            the time we have reached this method, the type has already been determined by
+            the runtime and the parameter is no longer needed.</param>
+            <returns>The resulting random string value.</returns>
+        </member>
+        <member name="M:TestHelperExtensions.StringExtensions.GetRandom(System.String,System.Int32)">
+            <summary>
+            Returns a random string of the specified length
+            </summary>
+            <param name="ignored">This parameter is used only to determine variable type. By
+            the time we have reached this method, the type has already been determined by
+            the runtime and the parameter is no longer needed.</param>
+            <param name="length">The length of the desired random string.</param>
+            <returns>The resulting random string value.</returns>
+        </member>
+        <member name="M:TestHelperExtensions.StringExtensions.GetRandomUSPhoneNumber(System.String)">
+            <summary>
+            Returns a random string in a format representing a US phone number
+            </summary>
+            <param name="ignored">This parameter is used only to determine variable type. By
+            the time we have reached this method, the type has already been determined by
+            the runtime and the parameter is no longer needed.</param>
+            <returns>The resulting random US phone number.</returns>
+        </member>
+        <member name="M:TestHelperExtensions.StringExtensions.GetRandomEmailAddress(System.String)">
+            <summary>
+            Returns a random string in a format representing an email address.
+            </summary>
+            <param name="ignored">This parameter is used only to determine variable type. By
+            the time we have reached this method, the type has already been determined by
+            the runtime and the parameter is no longer needed.</param>
+            <returns>The resulting random email address.</returns>
+        </member>
+        <member name="M:TestHelperExtensions.StringExtensions.ToStream(System.String)">
+            <summary>
+            Converts the specified string into a System.IO.Stream type.
+            </summary>
+            <param name="value">The string value to be converted into a Stream.</param>
+            <returns>The resulting System.IO.Stream data type.</returns>
+            <remarks>System.IO.Stream objects implement IDisposable and therefore must
+            be disposed of once they are no longer needed to avoid memory leaks.</remarks>
+        </member>
+        <member name="M:TestHelperExtensions.StringExtensions.RegexMatch(System.String,System.String)">
+            <summary>
+             Indicates whether the specified regular expression pattern 
+            finds a match in the specified input string.
+            </summary>
+            <param name="value">The string to search for a match.</param>
+            <param name="pattern">The regular expression pattern to match.</param>
+            <returns>Returns true if the regular expression finds a match, False if no match is found.</returns>
+        </member>
+        <member name="M:TestHelperExtensions.StringExtensions.Repeat(System.String,System.Int32)">
+            <summary>
+            Repeats the specified string a number of times
+            </summary>
+            <param name="value">The string to be repeated</param>
+            <param name="numberOfRepetitions">The number of times to repeat the string</param>
+            <returns>A string that represents the original string repeated the proper number of times</returns>
+        </member>
+        <member name="M:TestHelperExtensions.StringExtensions.Repeat(System.String,System.Int32,System.String)">
+            <summary>
+            Repeats the specified string a number of times, each
+            instance separated by the separator string
+            </summary>
+            <param name="value">The string to be repeated</param>
+            <param name="numberOfRepetitions">The number of times to repeat the string</param>
+            <param name="separator">The string to be placed in between instances of the 
+            original value in the output</param>
+            <returns>A string that represents the original string repeated the 
+            proper number of times, separated by the separator string</returns>
+        </member>
+    </members>
+</doc>

@@ -63,41 +63,6 @@ namespace TestHelperExtensions
         }
 
         /// <summary>
-        /// Gets a random range of values that can be used in the GetRandom
-        /// method for generating a random double value
-        /// </summary>
-        /// <param name="maxValue">The highest possible value for the upperBound of the range</param>
-        /// <returns>Two doubles that are not separated by more than
-        /// the value of Int64.MaxValue</returns>
-        /// <remarks>The Int64.MaxValue limit on the range is due to 
-        /// the way random numbers are generated in the GetRandom method</remarks>
-        public static (double lowerBound, double upperBound) GetRandomRange(this double maxValue)
-        {
-            double minValue = maxValue - RealMaxInt64;
-            return maxValue.GetRandomRange(minValue);
-        }
-
-        /// <summary>
-        /// Gets a random range of values that can be used in the GetRandom
-        /// method for generating a random double value
-        /// </summary>
-        /// <param name="maxValue">The highest possible value for the upperBound of the range</param>
-        /// <param name="minValue">The lowest possible value for the lowerBound of the range</param>
-        /// <returns>Two doubles that are not separated by more than
-        /// the value of Int64.MaxValue</returns>
-        /// <remarks>The Int64.MaxValue limit on the range is due to 
-        /// the way random numbers are generated in the GetRandom method</remarks>
-        public static (double lowerBound, double upperBound) GetRandomRange(this double maxValue, double minValue)
-        {
-            if (RealMaxInt64.IsWiderThanRange(minValue, maxValue))
-                throw new OverflowException($"The range of values cannot be greater than {RealMaxInt64}. Currently {minValue} - {maxValue}, range = {maxValue - minValue}");
-            
-            double value1 = maxValue.GetRandom(minValue);
-            double value2 = maxValue.GetRandom(minValue);
-            return (Math.Min(value1, value2), Math.Max(value1, value2));
-        }
-
-        /// <summary>
         /// Checks if the minValue and maxValue differ by more than
         /// the specified maximum range.
         /// </summary>

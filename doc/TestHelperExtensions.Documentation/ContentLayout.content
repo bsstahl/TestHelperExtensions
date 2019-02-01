@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Topics>
-  <Topic id="6c6c1b11-8142-4589-a12a-d7bf2279cbbe" visible="True" isDefault="true" isSelected="true" title="TestHelperExtensions Documentation">
+  <Topic id="6c6c1b11-8142-4589-a12a-d7bf2279cbbe" visible="True" isDefault="true" isSelected="true" title="Installation and Usage">
     <HelpKeywords>
       <HelpKeyword index="K" term="Welcome" />
     </HelpKeywords>
@@ -12,6 +12,22 @@
     <Topic id="f6ae2fa3-9752-4d09-b2dd-f009d6790cdc" visible="True" title="Version 1.0.0.0">
       <HelpKeywords>
         <HelpKeyword index="K" term="version, 1.0.0.0" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="35e4dcc3-6687-4d64-bd0e-9001cfbbe97d" visible="True" title="Version 1.1.1.0">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="version, 1.1.0.0" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="bf2d3b27-ebc9-4dcf-b222-de5747db9b91" visible="True" title="Version 1.1.5.0">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="version, 1.1.2.0" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="c464c7ab-394e-4ad8-9a8d-9b3da632a594" visible="True" title="Version 2.0.1.0" />
+    <Topic id="2ccf9eca-4af9-44ac-9f67-3cbbd277c665" visible="True" title="Version 2.1.0.0">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="version, 1.2.0.0" />
       </HelpKeywords>
     </Topic>
   </Topic>

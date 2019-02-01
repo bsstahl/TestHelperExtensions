@@ -3,9 +3,9 @@
   <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
     <introduction>
       <para>
-        A set of extension methods helpful when building unit tests. Methods
-        include functionality for creating random data of various types, converting
-        data types, comparing date data, searching within string arrays, etc.
+        The TestHelperExtensions are a set of extension methods helpful when building 
+        unit tests. Methods include functionality for creating random data of various types, 
+        converting data types, comparing date data, searching within string arrays, etc.
       </para>
     </introduction>
 

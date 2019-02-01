@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="2ccf9eca-4af9-44ac-9f67-3cbbd277c665" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>
+        Version 2.1.0.0 was released on 2019-01-31.
+      </para>
+    </introduction>
+
+    <section>
+      <title>Changes in This Release</title>
+      <content>
+
+        <list class="bullet">
+          <listItem>
+            <para>Added an IsWiderThanRange method and a RealMaxInt64 field to the DoubleExtensions.</para>
+          </listItem>
+
+          <listItem>
+            <para>Added HasSameValues and Shuffle methods to the EnumerableExtensions.</para>
+          </listItem>
+
+          <listItem>
+            <para>Added a ThrowIf method to a new set of ExceptionExtensions.</para>
+          </listItem>
+
+          <listItem>
+            <para>Added a Repeat method to the StringExtensions.</para>
+          </listItem>
+
+          <!--<listItem>
+            <para></para>
+          </listItem>-->
+        
+        </list>
+
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="a6e96d71-82cd-422f-ab38-ceccedb72dd1" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

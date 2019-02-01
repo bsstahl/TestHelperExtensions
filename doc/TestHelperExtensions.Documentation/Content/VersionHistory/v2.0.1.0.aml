@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="c464c7ab-394e-4ad8-9a8d-9b3da632a594" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Version 2.0.1.0 was released on 2018-10-11.
+			</para>
+		</introduction>
+
+		<section>
+			<title>Changes in This Release</title>
+			<content>
+
+				<list class="bullet">
+					<listItem>
+						<para>Added HasSameValues method to the EnumerableExtensions for validating that 2 lists hold the same values.</para>
+					</listItem>
+
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="a6e96d71-82cd-422f-ab38-ceccedb72dd1" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>
