@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>TestHelperExtensions</RootNamespace>
-    <Version>2.2.0.0</Version>
+    <Version>2.2.1.0</Version>
     <PackageId>TestHelperExtensions</PackageId>
     <Authors>Barry S. Stahl</Authors>
     <Company>CopperByte, Inc.</Company>
@@ -16,7 +16,7 @@
     <PackageLicenseUrl>https://github.com/bsstahl/TestHelperExtensions/blob/master/LICENSE</PackageLicenseUrl>
     <PackageLicense>https://github.com/bsstahl/TestHelperExtensions/blob/master/LICENSE</PackageLicense>
     <PackageTags>testing unit test extensions helper helpers</PackageTags>
-    <PackageReleaseNotes>Version 2.2.0 - Added A GetRandomEnumerable method to the ByteExtensions to generate random byte enumerables</PackageReleaseNotes>
+    <PackageReleaseNotes>Version 2.2.1 - Add methods for Single (float) data type equivalent to those for the Double data type</PackageReleaseNotes>
     <NeutralLanguage>EN-US</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
