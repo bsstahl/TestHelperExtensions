@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Xunit;
 
 namespace TestHelperExtensions.Test
 {
-    
+    [ExcludeFromCodeCoverage]
     public class StringArrayExtensions_Contains_Should
     {
         const string _targetValue = "16FFAC08-676A-4737-B4D9-13971B10752A";

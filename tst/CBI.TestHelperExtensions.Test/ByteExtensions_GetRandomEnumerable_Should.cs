@@ -2,10 +2,12 @@
 using System.Linq;
 using Xunit;
 using TestHelperExtensions.Test.Helpers;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TestHelperExtensions.Test
 {
 
+    [ExcludeFromCodeCoverage]
     public class ByteExtensions_GetRandomEnumerable_Should
     {
 

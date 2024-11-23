@@ -2,10 +2,11 @@
 using Xunit;
 using System.Linq;
 using TestHelperExtensions.Test.Helpers;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TestHelperExtensions.Test
 {
-
+    [ExcludeFromCodeCoverage]
     public class DateTimeExtensions_GetRandom_Should
     {
         // Note: Interaction tests are even less valuable here then

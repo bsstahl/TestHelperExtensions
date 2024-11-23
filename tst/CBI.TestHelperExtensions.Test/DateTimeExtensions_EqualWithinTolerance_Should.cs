@@ -1,10 +1,12 @@
 ﻿using System;
 using Xunit;
 using TestHelperExtensions;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TestHelperExtensions.Test
 {
 
+    [ExcludeFromCodeCoverage]
     public class DateTimeExtensions_EqualWithinTolerance_Should
     {
 

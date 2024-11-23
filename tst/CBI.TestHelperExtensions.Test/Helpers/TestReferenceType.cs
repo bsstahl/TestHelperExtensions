@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TestHelperExtensions.Test.Helpers
 {
+    [ExcludeFromCodeCoverage]
     public class TestReferenceType
     {
         public Guid Id { get; set; }

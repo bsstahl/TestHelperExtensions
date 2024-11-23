@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Linq;
-using Xunit;
-using TestHelperExtensions;
+using System.Diagnostics.CodeAnalysis;
 using TestHelperExtensions.Test.Helpers;
+using Xunit;
 
 namespace TestHelperExtensions.Test
 {
-
+    [ExcludeFromCodeCoverage]
     public class LongExtensions_GetRandom_Should
     {
 

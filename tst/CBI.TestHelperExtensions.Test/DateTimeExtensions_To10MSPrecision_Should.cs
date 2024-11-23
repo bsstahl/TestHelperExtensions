@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Xunit;
 
 namespace TestHelperExtensions.Test
 {
-    
+    [ExcludeFromCodeCoverage]
     public class DateTimeExtensions_To10MSPrecision_Should
     {
         [Fact]

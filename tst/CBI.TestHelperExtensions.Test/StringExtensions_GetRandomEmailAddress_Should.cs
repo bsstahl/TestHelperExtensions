@@ -1,10 +1,9 @@
-﻿using System;
+﻿using System.Diagnostics.CodeAnalysis;
 using Xunit;
-using System.Text.RegularExpressions;
 
 namespace TestHelperExtensions.Test
 {
-    
+    [ExcludeFromCodeCoverage]
     public class StringExtensions_GetRandomEmailAddress_Should
     {
         const string emailPattern = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";

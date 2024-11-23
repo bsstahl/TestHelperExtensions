@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using Xunit;
 
 namespace TestHelperExtensions.Test
 {
-
+    [ExcludeFromCodeCoverage]
     public class StringExtensions_Repeat_Should
     {
 

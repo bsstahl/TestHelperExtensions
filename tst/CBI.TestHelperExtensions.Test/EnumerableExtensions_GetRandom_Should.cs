@@ -1,11 +1,11 @@
-﻿using System;
-using Xunit;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using TestHelperExtensions.Test.Helpers;
+using Xunit;
 
 namespace TestHelperExtensions.Test
 {
-    
+    [ExcludeFromCodeCoverage]
     public class EnumerableExtensions_GetRandom_Should
     {
         [Fact]

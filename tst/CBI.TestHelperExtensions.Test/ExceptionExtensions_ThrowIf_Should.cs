@@ -1,12 +1,11 @@
 ﻿using System;
-using Xunit;
-using TestHelperExtensions;
-using System.Linq.Expressions;
+using System.Diagnostics.CodeAnalysis;
 using TestHelperExtensions.Test.Helpers;
+using Xunit;
 
 namespace TestHelperExtensions.Test
 {
-
+    [ExcludeFromCodeCoverage]
     public class ExceptionExtensions_ThrowIf_Should
     {
         [Fact]

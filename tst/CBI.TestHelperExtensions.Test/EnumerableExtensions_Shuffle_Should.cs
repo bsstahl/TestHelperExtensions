@@ -1,13 +1,12 @@
 ﻿using System;
-using Xunit;
-using System.Linq;
-using TestHelperExtensions;
-using TestHelperExtensions.Test.Helpers;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Xunit;
 
 namespace TestHelperExtensions.Test
 {
-    
+    [ExcludeFromCodeCoverage]
     public class EnumerableExtensions_Shuffle_Should
     {
         [Fact]

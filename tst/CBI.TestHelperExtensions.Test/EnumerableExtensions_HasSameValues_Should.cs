@@ -1,10 +1,11 @@
 ﻿using System;
-using Xunit;
 using System.Collections.Generic;
-using TestHelperExtensions;
+using System.Diagnostics.CodeAnalysis;
+using Xunit;
 
 namespace TestHelperExtensions.Test
 {
+    [ExcludeFromCodeCoverage]
     public class EnumerableExtensions_HasSameValues_Should
     {
         [Fact]

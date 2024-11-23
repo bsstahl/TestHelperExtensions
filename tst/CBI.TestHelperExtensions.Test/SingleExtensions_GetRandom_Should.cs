@@ -1,10 +1,11 @@
 ﻿using System;
 using Xunit;
 using TestHelperExtensions.Test.Helpers;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TestHelperExtensions.Test
 {
-
+    [ExcludeFromCodeCoverage]
     public class SingleExtensions_GetRandom_Should
     {
         const int _executionCount = 500;

@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Linq;
-using Xunit;
+using System.Diagnostics.CodeAnalysis;
 using TestHelperExtensions.Test.Helpers;
-using System.Text;
+using Xunit;
 
 namespace TestHelperExtensions.Test
 {
 
+    [ExcludeFromCodeCoverage]
     public class DoubleExtensions_GetRandom_Should
     {
         const int _executionCount = 5000;

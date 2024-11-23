@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Xunit;
 
 namespace TestHelperExtensions.Test
 {
-    
+    [ExcludeFromCodeCoverage]
     public class DateTimeExtensions_ToOracleDate_Should
     {
         // TO_DATE('01/01/2010 16:41:57','MM/DD/YYYY HH24:MI:SS')

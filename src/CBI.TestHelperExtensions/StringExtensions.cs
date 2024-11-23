@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -15,6 +16,11 @@ namespace TestHelperExtensions
     public static class StringExtensions
     {
         const int _defaultLength = 8;
+        private static string[] _streetNames = ["Main", "Elm", "Broadway", "Maple", "Oak", "Pine", "Cedar", "Birch", "Walnut", 
+            "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "Washington", "Jefferson", "Lincoln", "Madison", 
+            "Jackson", "Franklin", "Adams", "Kennedy", "Hamilton", "Grant", "Cleveland" ];
+        private static string[] _streetTypes = ["St", "Ave", "Blvd", "Cir", "Ct", "Dr", "Ln", "Pkwy", "Pl", "Rd", "St", "Ter", "Way"];
+        private static string[] _unitTypes = ["Apt", "Apartment", "Suite", "Ste", "Unit", "#"];
 
         /// <summary>
         /// Returns a random string of 8 characters
@@ -65,17 +71,52 @@ namespace TestHelperExtensions
         /// <summary>
         /// Returns a random string in a format representing an email address.
         /// </summary>
-        /// <param name="ignored">This parameter is used only to determine variable type. By
+        /// <param name="_">This parameter is used only to determine variable type. By
         /// the time we have reached this method, the type has already been determined by
         /// the runtime and the parameter is no longer needed.</param>
         /// <returns>The resulting random email address.</returns>
-        public static string GetRandomEmailAddress(this string ignored)
+        public static string GetRandomEmailAddress(this string _)
         {
             string[] tlds = new string[] { "com", "net", "org", "int", "edu", "mil", "gov", "me", "ru", "au", "cz", "gb", "hk", "it", "jp" };
             string part1 = string.Empty.GetRandom(8.GetRandom(3));
             string domain = string.Empty.GetRandom(12.GetRandom(3));
             string tld = tlds[15.GetRandom()];
             return string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}@{1}.{2}", part1, domain, tld);
+        }
+
+        /// <summary>
+        /// Returns a random string in a format representing a Vehicle Identification Number.
+        /// </summary>
+        /// <param name="_">This parameter is used only to determine variable type. By
+        /// the time we have reached this method, the type has already been determined by
+        /// the runtime and the parameter is no longer needed.</param>
+        /// <returns>The resulting random VIN.</returns>
+        /// <remarks>Vehicle Identification Numbers (VINs) are 17 characters long and are used to uniquely identify motor vehicles.
+        /// This method returns a well-formed VIN, but one that is probably not valid for any particular vehicle type.
+        /// </remarks>
+        public static string GetRandomVIN(this string _)
+        {
+            var (prefix, suffix) = GenerateRandomVIN();
+            return CalculateFullVin(prefix, suffix);
+        }
+
+        /// <summary>
+        /// Returns a random string the a format representing a US street address
+        /// </summary>
+        /// <param name="_">This parameter is used only to determine variable type. By
+        /// the time we have reached this method, the type has already been determined by
+        /// the runtime and the parameter is no longer needed.</param>
+        /// <returns>The resulting random US street address.</returns>
+        public static string GetRandomUSAddress(this string _)
+        {
+            string number = 99999.GetRandom(10).ToString();
+            string streetName = _streetNames.GetRandom();
+            string streetType = _streetTypes.GetRandom();
+            string unitType = _unitTypes.GetRandom();
+            string unitNumber = 99.GetRandom(4).ToString();
+            return true.GetRandom()
+                ? $"{number} {streetName} {streetType}" 
+                : $"{number} {streetName} {streetType} {unitType} {unitNumber}";
         }
 
         /// <summary>
@@ -142,6 +183,69 @@ namespace TestHelperExtensions
             }
 
             return sb.ToString();
+        }
+
+        private static (string Prefix, string Suffix) GenerateRandomVIN()
+        {
+            const string chars = "ABCDEFGHJKLMNPRSTUVWXYZ0123456789";
+            Random random = new Random();
+
+            StringBuilder prefix = new StringBuilder(8);
+
+            // Generate WMI (3 characters)
+            prefix.Append(chars[random.Next(0, 26)]); // First letter
+            prefix.Append(chars[random.Next(0, 26)]); // Second letter
+            prefix.Append(chars[random.Next(0, 10)]); // Number
+
+            // Generate VDS (5 characters)
+            for (int i = 0; i < 5; i++)
+            {
+                prefix.Append(chars[random.Next(chars.Length)]);
+            }
+
+            // Generate VIS (8 characters)
+            StringBuilder suffix = new StringBuilder(8);
+            for (int i = 0; i < 8; i++)
+            {
+                suffix.Append(chars[random.Next(chars.Length)]);
+            }
+
+            return (prefix.ToString(), suffix.ToString());
+        }
+
+        private static string CalculateFullVin(string prefix, string suffix)
+        {
+            if (prefix.Length != 8 || suffix.Length != 8)
+                throw new ArgumentException("Total VIN without check digit must be 16 characters long.");
+
+            string vin = prefix + suffix;
+
+            int[] weights = { 8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2 };
+            Dictionary<char, int> transliterations = new Dictionary<char, int>
+        {
+            {'A', 1}, {'B', 2}, {'C', 3}, {'D', 4}, {'E', 5}, {'F', 6},
+            {'G', 7}, {'H', 8}, {'J', 1}, {'K', 2}, {'L', 3}, {'M', 4},
+            {'N', 5}, {'P', 7}, {'R', 9}, {'S', 2}, {'T', 3}, {'U', 4},
+            {'V', 5}, {'W', 6}, {'X', 7}, {'Y', 8}, {'Z', 9},
+            {'0', 0}, {'1', 1}, {'2', 2}, {'3', 3}, {'4', 4},
+            {'5', 5}, {'6', 6}, {'7', 7}, {'8', 8}, {'9', 9}
+        };
+
+            int sum = 0;
+            for (int i = 0; i < vin.Length; i++)
+            {
+                char c = vin[i];
+                if (!transliterations.ContainsKey(c))
+                    throw new ArgumentException($"Invalid character in VIN: {c}");
+
+                int value = transliterations[c];
+                sum += value * weights[i];
+            }
+
+            int remainder = sum % 11;
+            var checkChar = remainder == 10 ? 'X' : remainder.ToString()[0];
+
+            return $"{prefix}{checkChar}{suffix}";
         }
     }
 }

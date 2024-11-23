@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 
 namespace TestHelperExtensions.Test.Helpers
 {
+    [ExcludeFromCodeCoverage]
     internal static class Randomizer
     {
         const int _maxSeederUses = 100;

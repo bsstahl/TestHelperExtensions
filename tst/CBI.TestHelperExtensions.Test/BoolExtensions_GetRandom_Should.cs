@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Xunit;
 
 namespace TestHelperExtensions.Test
@@ -10,7 +11,8 @@ namespace TestHelperExtensions.Test
     // returned properly, and one-off errors such as failing
     // to include a value on the inclusive side or exclude a
     // value on the non-inclusive side.
-    
+
+    [ExcludeFromCodeCoverage]
     public class BoolExtensions_GetRandom_Should
     {
         const int _executionCount = 5000;
