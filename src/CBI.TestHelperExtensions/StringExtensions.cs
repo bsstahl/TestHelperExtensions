@@ -22,6 +22,10 @@ namespace TestHelperExtensions
         private static string[] _streetTypes = ["St", "Ave", "Blvd", "Cir", "Ct", "Dr", "Ln", "Pkwy", "Pl", "Rd", "St", "Ter", "Way"];
         private static string[] _unitTypes = ["Apt", "Apartment", "Suite", "Ste", "Unit", "#"];
 
+        private static string[] _alternativeTrue = { "1", "true", "t", "yes", "y", "on" };
+        private static string[] _alternativeFalse = { "0", "false", "f", "no", "n", "off" };
+
+
         /// <summary>
         /// Returns a random string of 8 characters
         /// </summary>
@@ -185,6 +189,52 @@ namespace TestHelperExtensions
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Converts the specified string to a boolean value
+        /// </summary>
+        /// <param name="value">The string to be converted</param>
+        /// <returns>True if the value is recognizable as a boolean true value, 
+        /// false if it is recognized as a boolean false value.</returns>
+        /// <exception cref="ArgumentException">Thrown if the value is not recognizable as a boolean true or false</exception>
+        public static bool ToBool(this string value)
+        {
+            return value.IsValidBool()
+                ? value.GetBool() 
+                : throw new ArgumentException($"Unable to parse '{value}' to a valid boolean value");
+        }
+
+        /// <summary>
+        /// Determines if the specified string is a valid boolean value
+        /// </summary>
+        /// <param name="value">The value being tested</param>
+        /// <returns>True if the value is recognizable as a boolean, otherwise false</returns>
+        public static bool IsValidBool(this string value)
+        {
+            var result = !string.IsNullOrWhiteSpace(value) && 
+                (bool.TryParse(value, out _) || value.IsAlternativeBool());
+            return result;
+        }
+
+        private static bool GetBool(this string value)
+        {
+            return value.IsAlternativeBool() 
+                ? value.GetAlternativeBoolValue() 
+                : bool.Parse(value);
+        }
+
+        private static bool IsAlternativeBool(this string value)
+        {
+            return _alternativeTrue.Contains(value.ToLower())
+                || _alternativeFalse.Contains(value.ToLower());
+        }
+
+        private static bool GetAlternativeBoolValue(this string value)
+        {
+            return value.IsAlternativeBool()
+                ? _alternativeTrue.Contains(value.ToLower())
+                : throw new ArgumentException($"'{value}' is not recognizable as a boolean value");
+        }
+
         private static (string Prefix, string Suffix) GenerateRandomVIN()
         {
             const string chars = "ABCDEFGHJKLMNPRSTUVWXYZ0123456789";
@@ -248,4 +298,5 @@ namespace TestHelperExtensions
             return $"{prefix}{checkChar}{suffix}";
         }
     }
+
 }

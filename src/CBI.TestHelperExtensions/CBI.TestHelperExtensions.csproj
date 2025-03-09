@@ -3,20 +3,20 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>TestHelperExtensions</RootNamespace>
-    <Version>2.3.0.0</Version>
+    <Version>2.4.0.0</Version>
     <PackageId>TestHelperExtensions</PackageId>
     <Authors>Barry S. Stahl</Authors>
     <Company>CopperByte, Inc.</Company>
     <Product>TestHelperExtensions</Product>
     <Title>TestHelperExtensions</Title>
-    <Copyright>Copyright (c) 2015-2024 Barry S. Stahl</Copyright>
+    <Copyright>Copyright (c) 2015-2025 Barry S. Stahl</Copyright>
     <Description>A set of extension methods helpful when building unit tests. Methods include functionality for creating random data of various types, converting data types, comparing date data, searching within string arrays, etc.</Description>
     <PackageProjectUrl>https://github.com/bsstahl/TestHelperExtensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/bsstahl/TestHelperExtensions</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/bsstahl/TestHelperExtensions/blob/master/LICENSE</PackageLicenseUrl>
     <PackageLicense>https://github.com/bsstahl/TestHelperExtensions/blob/master/LICENSE</PackageLicense>
     <PackageTags>testing unit test extensions helper helpers</PackageTags>
-    <PackageReleaseNotes>Version 2.3.0 - Update to .NET 9 and add support for VINs and US Addresses</PackageReleaseNotes>
+    <PackageReleaseNotes>Version 2.4.0 - Add support for converting strings to booleans</PackageReleaseNotes>
     <NeutralLanguage>EN-US</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
