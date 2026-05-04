@@ -21,6 +21,13 @@ namespace TestHelperExtensions
         /// <param name="dataArray">A list of string values.</param>
         /// <param name="key">The value being searched for in the list of strings.</param>
         /// <returns>A boolean indicating if the key value was found in the list of values.</returns>
+        /// <example>
+        /// <code>
+        /// // Check whether a role is contained in an allowed roles array
+        /// string[] allowedRoles = new[] { "Admin", "Editor", "Viewer" };
+        /// bool hasRole = allowedRoles.Contains("Editor"); // true
+        /// </code>
+        /// </example>
         public static bool Contains(this string[] dataArray, string key)
         {
             return dataArray.Contains(key, StringComparison.CurrentCulture);
@@ -34,6 +41,13 @@ namespace TestHelperExtensions
         /// <param name="key">The value being searched for in the list of strings.</param>
         /// <param name="comparisonType">Specifies the culture, case, and sort rules to be used during string comparison.</param>
         /// <returns>A boolean indicating if the key value was found in the list of values.</returns>
+        /// <example>
+        /// <code>
+        /// // Case-insensitive search for a value in a string array
+        /// string[] colors = new[] { "Red", "Green", "Blue" };
+        /// bool found = colors.Contains("green", StringComparison.OrdinalIgnoreCase); // true
+        /// </code>
+        /// </example>
         public static bool Contains(this string[] dataArray, string key, StringComparison comparisonType)
         {
             bool result = false;

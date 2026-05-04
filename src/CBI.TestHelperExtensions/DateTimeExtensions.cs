@@ -19,6 +19,12 @@ namespace TestHelperExtensions
         /// </summary>
         /// <param name="maxValue">The date/time that the random value should fall before.</param>
         /// <returns>A DateTime structure representing a random moment in time</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random DateTime before January 1, 2025
+        /// DateTime result = new DateTime(2025, 1, 1).GetRandom();
+        /// </code>
+        /// </example>
         public static DateTime GetRandom(this DateTime maxValue)
         {
             return maxValue.GetRandom(DateTime.MinValue);
@@ -30,6 +36,14 @@ namespace TestHelperExtensions
         /// <param name="maxValue">The date/time that the random value should fall before.</param>
         /// <param name="minValue">The date/time that the random value should fall after</param>
         /// <returns>A DateTime structure representing a random moment in time</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random DateTime between January 1, 2020 and January 1, 2025
+        /// DateTime minDate = new DateTime(2020, 1, 1);
+        /// DateTime maxDate = new DateTime(2025, 1, 1);
+        /// DateTime result = maxDate.GetRandom(minDate);
+        /// </code>
+        /// </example>
         public static DateTime GetRandom(this DateTime maxValue, DateTime minValue)
         {
             long ticks = maxValue.Ticks.GetRandom(minValue.Ticks);
@@ -45,6 +59,14 @@ namespace TestHelperExtensions
         /// <remarks>Is often used to make DateTime comparisons work better
         /// since a difference in precision between 2 DateTime values will 
         /// cause comparisons to fail that should otherwise match.</remarks>
+        /// <example>
+        /// <code>
+        /// // Truncate a DateTime to minute precision for comparison
+        /// DateTime actual = GetSomeDateTimeFromSystem();
+        /// DateTime expected = new DateTime(2024, 6, 15, 10, 30, 0);
+        /// Assert.AreEqual(expected, actual.ToMinutePrecision());
+        /// </code>
+        /// </example>
         public static DateTime ToMinutePrecision(this DateTime value)
         {
             return new DateTime(value.Year, value.Month, value.Day, value.Hour, value.Minute, 0);
@@ -60,6 +82,14 @@ namespace TestHelperExtensions
         /// <remarks>Is often used to make DateTime comparisons work better
         /// since a difference in precision between 2 DateTime values will 
         /// cause comparisons to fail that should otherwise match.</remarks>
+        /// <example>
+        /// <code>
+        /// // Truncate a nullable DateTime to minute precision; null is passed through unchanged
+        /// DateTime? actual = GetNullableDateTimeFromSystem();
+        /// DateTime? expected = new DateTime(2024, 6, 15, 10, 30, 0);
+        /// Assert.AreEqual(expected, actual.ToMinutePrecision());
+        /// </code>
+        /// </example>
         public static DateTime? ToMinutePrecision(this DateTime? value)
         {
             if (value.HasValue)
@@ -77,6 +107,14 @@ namespace TestHelperExtensions
         /// <remarks>Is often used to make DateTime comparisons work better
         /// since a difference in precision between 2 DateTime values will 
         /// cause comparisons to fail that should otherwise match.</remarks>
+        /// <example>
+        /// <code>
+        /// // Truncate a DateTime to second precision for comparison
+        /// DateTime actual = GetSomeDateTimeFromSystem();
+        /// DateTime expected = new DateTime(2024, 6, 15, 10, 30, 45);
+        /// Assert.AreEqual(expected, actual.ToSecondPrecision());
+        /// </code>
+        /// </example>
         public static DateTime ToSecondPrecision(this DateTime value)
         {
             return new DateTime(value.Year, value.Month, value.Day, value.Hour, value.Minute, value.Second);
@@ -92,6 +130,14 @@ namespace TestHelperExtensions
         /// <remarks>Is often used to make DateTime comparisons work better
         /// since a difference in precision between 2 DateTime values will 
         /// cause comparisons to fail that should otherwise match.</remarks>
+        /// <example>
+        /// <code>
+        /// // Truncate a nullable DateTime to second precision; null is passed through unchanged
+        /// DateTime? actual = GetNullableDateTimeFromSystem();
+        /// DateTime? expected = new DateTime(2024, 6, 15, 10, 30, 45);
+        /// Assert.AreEqual(expected, actual.ToSecondPrecision());
+        /// </code>
+        /// </example>
         public static DateTime? ToSecondPrecision(this DateTime? value)
         {
             if (value.HasValue)
@@ -109,6 +155,13 @@ namespace TestHelperExtensions
         /// <remarks>Is often used to make DateTime comparisons work better
         /// since a difference in precision between 2 DateTime values will 
         /// cause comparisons to fail that should otherwise match.</remarks>
+        /// <example>
+        /// <code>
+        /// // Truncate a DateTime to 10-millisecond precision for comparison
+        /// DateTime actual = GetSomeDateTimeFromSystem();
+        /// Assert.AreEqual(actual.To10MSPrecision(), storedValue.To10MSPrecision());
+        /// </code>
+        /// </example>
         public static DateTime To10MSPrecision(this DateTime value)
         {
             return DateTime.Parse(value.ToString("MM/dd/yyyy HH:mm:ss.FF", System.Globalization.CultureInfo.InvariantCulture), System.Globalization.CultureInfo.InvariantCulture);
@@ -124,6 +177,13 @@ namespace TestHelperExtensions
         /// <remarks>Is often used to make DateTime comparisons work better
         /// since a difference in precision between 2 DateTime values will 
         /// cause comparisons to fail that should otherwise match.</remarks>
+        /// <example>
+        /// <code>
+        /// // Truncate a nullable DateTime to 10-millisecond precision; null is passed through unchanged
+        /// DateTime? actual = GetNullableDateTimeFromSystem();
+        /// Assert.AreEqual(actual.To10MSPrecision(), storedValue.To10MSPrecision());
+        /// </code>
+        /// </example>
         public static DateTime? To10MSPrecision(this DateTime? value)
         {
             if (value.HasValue)
@@ -141,6 +201,13 @@ namespace TestHelperExtensions
         /// <remarks>Is often used to make DateTime comparisons work better
         /// since a difference in precision between 2 DateTime values will 
         /// cause comparisons to fail that should otherwise match.</remarks>
+        /// <example>
+        /// <code>
+        /// // Truncate a DateTime to 100-millisecond precision for comparison
+        /// DateTime actual = GetSomeDateTimeFromSystem();
+        /// Assert.AreEqual(actual.To100MSPrecision(), storedValue.To100MSPrecision());
+        /// </code>
+        /// </example>
         public static DateTime To100MSPrecision(this DateTime value)
         {
             return DateTime.Parse(value.ToString("MM/dd/yyyy HH:mm:ss.F", System.Globalization.CultureInfo.InvariantCulture), System.Globalization.CultureInfo.InvariantCulture);
@@ -156,6 +223,13 @@ namespace TestHelperExtensions
         /// <remarks>Is often used to make DateTime comparisons work better
         /// since a difference in precision between 2 DateTime values will 
         /// cause comparisons to fail that should otherwise match.</remarks>
+        /// <example>
+        /// <code>
+        /// // Truncate a nullable DateTime to 100-millisecond precision; null is passed through unchanged
+        /// DateTime? actual = GetNullableDateTimeFromSystem();
+        /// Assert.AreEqual(actual.To100MSPrecision(), storedValue.To100MSPrecision());
+        /// </code>
+        /// </example>
         public static DateTime? To100MSPrecision(this DateTime? value)
         {
             if (value.HasValue)
@@ -173,6 +247,14 @@ namespace TestHelperExtensions
         /// <returns>A string that can be concatenated into a PL/SQL statement representing the specified date.</returns>
         /// <remarks>Reminder: these methods are not recommended for use in production code, 
         /// just the test of production code.</remarks>
+        /// <example>
+        /// <code>
+        /// // Build a PL/SQL WHERE clause using a DateTime value
+        /// DateTime testDate = new DateTime(2024, 3, 15, 8, 0, 0);
+        /// string sql = $"SELECT * FROM Orders WHERE OrderDate = {testDate.ToOracleDate()}";
+        /// // sql == "SELECT * FROM Orders WHERE OrderDate = TO_DATE('03/15/2024 08:00:00','MM/DD/YYYY HH24:MI:SS')"
+        /// </code>
+        /// </example>
         public static string ToOracleDate(this DateTime value)
         {
             return string.Format(System.Globalization.CultureInfo.InvariantCulture, "TO_DATE('{0:MM/dd/yyyy HH:mm:ss}','MM/DD/YYYY HH24:MI:SS')", value);
@@ -188,6 +270,13 @@ namespace TestHelperExtensions
         /// <returns>A string that can be concatenated into a PL/SQL statement representing the specified date.</returns>
         /// <remarks>Reminder: these methods are not recommended for use in production code, 
         /// just the test of production code.</remarks>
+        /// <example>
+        /// <code>
+        /// // Build a PL/SQL WHERE clause from a nullable DateTime; outputs "null" when the value is not set
+        /// DateTime? testDate = GetNullableDateFromSystem();
+        /// string sql = $"SELECT * FROM Orders WHERE ShippedDate = {testDate.ToOracleDate()}";
+        /// </code>
+        /// </example>
         public static string ToOracleDate(this DateTime? value)
         {
             if (value.HasValue)
@@ -206,6 +295,14 @@ namespace TestHelperExtensions
         /// <param name="tolerance">A TimeSpan representing the maximum discrepancy between 
         /// the 2 values for the DateTime values to be considered a match.</param>
         /// <returns>A boolean value indicating if the 2 values are equal within the specified tolerance.</returns>
+        /// <example>
+        /// <code>
+        /// // Verify that two DateTimes are within 1 second of each other
+        /// DateTime actual = GetSomeDateTimeFromSystem();
+        /// DateTime expected = DateTime.UtcNow;
+        /// Assert.IsTrue(actual.EqualWithinTolerance(expected, TimeSpan.FromSeconds(1)));
+        /// </code>
+        /// </example>
         public static bool EqualWithinTolerance(this DateTime objectUnderTest, DateTime comparisonValue, TimeSpan tolerance)
         {
             TimeSpan duration = objectUnderTest.Subtract(comparisonValue).Duration();

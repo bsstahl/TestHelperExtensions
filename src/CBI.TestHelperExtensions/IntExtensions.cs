@@ -16,6 +16,12 @@ namespace TestHelperExtensions
         /// </summary>
         /// <param name="maxValue">The non-inclusive maximum integer value for the random number</param>
         /// <returns>A random integer</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random integer between 0 (inclusive) and 100 (exclusive)
+        /// int result = 100.GetRandom();
+        /// </code>
+        /// </example>
         public static int GetRandom(this int maxValue)
         {
             return maxValue.GetRandom(0);
@@ -27,6 +33,12 @@ namespace TestHelperExtensions
         /// <param name="maxValue">The non-inclusive maximum integer value for the random number</param>
         /// <param name="minValue">the inclusive minimum integer value for the random number</param>
         /// <returns>A random integer</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random integer between 10 (inclusive) and 50 (exclusive)
+        /// int result = 50.GetRandom(10);
+        /// </code>
+        /// </example>
         public static int GetRandom(this int maxValue, int minValue)
         {
             return RandomNumberGenerator.Create().Next(minValue, maxValue);

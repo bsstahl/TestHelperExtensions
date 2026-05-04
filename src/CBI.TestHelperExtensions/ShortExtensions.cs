@@ -16,6 +16,12 @@ namespace TestHelperExtensions
         /// </summary>
         /// <param name="maxValue">The non-inclusive maximum short value for the random number</param>
         /// <returns>A random short</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random short between 0 (inclusive) and 1000 (exclusive)
+        /// short result = ((short)1000).GetRandom();
+        /// </code>
+        /// </example>
         public static Int16 GetRandom(this Int16 maxValue)
         {
             return maxValue.GetRandom(0);
@@ -27,6 +33,12 @@ namespace TestHelperExtensions
         /// <param name="maxValue">The non-inclusive maximum short value for the random number</param>
         /// <param name="minValue">the inclusive minimum short value for the random number</param>
         /// <returns>A random short</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random short between 100 (inclusive) and 500 (exclusive)
+        /// short result = ((short)500).GetRandom((short)100);
+        /// </code>
+        /// </example>
         public static Int16 GetRandom(this Int16 maxValue, Int16 minValue)
         {
             return (Int16)RandomNumberGenerator.Create().Next(minValue, maxValue);

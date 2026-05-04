@@ -22,6 +22,13 @@ namespace TestHelperExtensions
         /// <typeparam name="T">Any collectable type</typeparam>
         /// <param name="values">A list of items from which a random one is to be selected.</param>
         /// <returns>A random object from within the list of values</returns>
+        /// <example>
+        /// <code>
+        /// // Pick a random string from a list
+        /// var options = new List&lt;string&gt; { "apple", "banana", "cherry" };
+        /// string randomFruit = options.GetRandom();
+        /// </code>
+        /// </example>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "values")]
         public static T GetRandom<T>(this IEnumerable<T> values)
         {
@@ -44,6 +51,13 @@ namespace TestHelperExtensions
         /// <typeparam name="T">Any numeric data type.</typeparam>
         /// <param name="values">A list of numeric values for which the standard deviation is to be determined.</param>
         /// <returns>A double containing the population standard deviation of the list of values.</returns>
+        /// <example>
+        /// <code>
+        /// // Calculate the standard deviation of a set of test scores
+        /// var scores = new List&lt;int&gt; { 55, 70, 85, 90, 95 };
+        /// double stdDev = scores.StdDev();
+        /// </code>
+        /// </example>
         public static double StdDev<T>(this IEnumerable<T> values)
         {
             int count = values.Count();
@@ -63,6 +77,13 @@ namespace TestHelperExtensions
         /// <returns>A double containing the median value of the list of values.</returns>
         /// <remarks>The return type of this method has to be double rather than T because
         /// the median has to be interpolated if the list contains an even number of values.</remarks>
+        /// <example>
+        /// <code>
+        /// // Calculate the median of a set of response times in milliseconds
+        /// var responseTimes = new List&lt;int&gt; { 120, 95, 300, 88, 150 };
+        /// double median = responseTimes.Median();
+        /// </code>
+        /// </example>
         public static double Median<T>(this IEnumerable<T> values)
         {
             int count = values.Count();
@@ -98,6 +119,13 @@ namespace TestHelperExtensions
         /// the range may cross the maximum positive value for the specified data type. For example,
         /// a list of Integers, that goes from -Int32.MaxValue to Int32.MaxValue would have a range
         /// of 2*Int32.MaxValue, which is clearly greater then the maximum allowable value of an Int32.</remarks>
+        /// <example>
+        /// <code>
+        /// // Calculate the range (max - min) of a list of temperatures
+        /// var temperatures = new List&lt;double&gt; { 36.6, 37.1, 38.4, 36.9 };
+        /// double range = temperatures.Range(); // 38.4 - 36.6 = 1.8
+        /// </code>
+        /// </example>
         public static double Range<T>(this IEnumerable<T> values)
         {
             int count = values.Count();
@@ -118,6 +146,14 @@ namespace TestHelperExtensions
         /// <param name="list2">The list of values to compare to</param>
         /// <returns>True if the lists contain the same values, false if the
         /// lists differ in count or values.</returns>
+        /// <example>
+        /// <code>
+        /// // Verify that two collections contain the same elements (order-independent)
+        /// var expected = new List&lt;int&gt; { 3, 1, 2 };
+        /// var actual = new List&lt;int&gt; { 1, 2, 3 };
+        /// Assert.IsTrue(expected.HasSameValues(actual));
+        /// </code>
+        /// </example>
         public static bool HasSameValues<T>(this IEnumerable<T> list1, IEnumerable<T> list2)
         {
             bool result = false;
@@ -147,6 +183,13 @@ namespace TestHelperExtensions
         /// <param name="list">The list to be shuffled</param>
         /// <returns>An IEnumerable containing elements of the same type as 
         /// the original IEnumerable but in a random order</returns>
+        /// <example>
+        /// <code>
+        /// // Shuffle a deck of card values into a random order
+        /// var deck = Enumerable.Range(1, 52);
+        /// IEnumerable&lt;int&gt; shuffledDeck = deck.Shuffle();
+        /// </code>
+        /// </example>
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list)
         {
             if (list == null)

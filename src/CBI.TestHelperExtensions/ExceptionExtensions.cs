@@ -24,6 +24,13 @@ namespace TestHelperExtensions
         /// <param name="predicate">A function returning a bool containing functionality
         /// to determine if the exception should be thrown or not</param>
         /// <param name="parameter">The parameter value used in the predicate function</param>
+        /// <example>
+        /// <code>
+        /// // Throw an ArgumentException if the supplied string is null or empty
+        /// string name = GetNameFromInput();
+        /// new ArgumentException("Name cannot be empty").ThrowIf&lt;string&gt;(string.IsNullOrEmpty, name);
+        /// </code>
+        /// </example>
         public static void ThrowIf<T>(this Exception exception, Func<T, bool> predicate, T parameter)
         {
             if (predicate(parameter))

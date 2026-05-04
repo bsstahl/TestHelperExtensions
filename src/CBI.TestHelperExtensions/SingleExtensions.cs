@@ -17,6 +17,12 @@ namespace TestHelperExtensions
         /// </summary>
         /// <param name="maxValue">The non-inclusive maximum value for the random number</param>
         /// <returns>A random Single less than the maxValue and greater than or equal to zero.</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random float between 0.0 (inclusive) and 5.0 (exclusive)
+        /// float result = 5.0f.GetRandom();
+        /// </code>
+        /// </example>
         public static float GetRandom(this float maxValue)
             => maxValue.GetRandom(0.0f);
 
@@ -27,6 +33,12 @@ namespace TestHelperExtensions
         /// <param name="maxValue">The non-inclusive maximum value for the random number</param>
         /// <param name="minValue">The inclusive minimum value for the random number</param>
         /// <returns>A random Single in the specified range</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random float between 1.0 (inclusive) and 10.0 (exclusive)
+        /// float result = 10.0f.GetRandom(1.0f);
+        /// </code>
+        /// </example>
         public static float GetRandom(this float maxValue, float minValue)
         {
             return Convert
@@ -42,6 +54,15 @@ namespace TestHelperExtensions
         /// <param name="minValue">The lower bound of the range</param>
         /// <param name="maxValue">The upper bound of the range</param>
         /// <returns>True if the difference between the two values is greater than maxRange, False otherwise.</returns>
+        /// <example>
+        /// <code>
+        /// // Check whether the spread of values exceeds an allowed maximum range
+        /// float allowedRange = 50.0f;
+        /// float lowerBound = 10.0f;
+        /// float upperBound = 40.0f;
+        /// bool isTooWide = allowedRange.IsWiderThanRange(lowerBound, upperBound); // false
+        /// </code>
+        /// </example>
         public static bool IsWiderThanRange(this float maxRange, float minValue, float maxValue)
         {
             throw new NotImplementedException();

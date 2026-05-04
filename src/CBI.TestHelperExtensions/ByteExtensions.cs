@@ -21,6 +21,12 @@ namespace TestHelperExtensions
         /// <returns>A random byte</returns>
         /// <remarks>255 is not a reachable value here since the maximum value
         /// of a byte is 255 and the specified maxValue is non-inclusive.</remarks>
+        /// <example>
+        /// <code>
+        /// // Get a random byte between 0 (inclusive) and 200 (exclusive)
+        /// byte result = ((byte)200).GetRandom();
+        /// </code>
+        /// </example>
         public static byte GetRandom(this byte maxValue)
         {
             return maxValue.GetRandom(Convert.ToByte(0));
@@ -35,6 +41,12 @@ namespace TestHelperExtensions
         /// <returns>A random byte</returns>
         /// <remarks>255 is not a reachable value here since the maximum value
         /// of a byte is 255 and the specified maxValue is non-inclusive.</remarks>
+        /// <example>
+        /// <code>
+        /// // Get a random byte between 50 (inclusive) and 150 (exclusive)
+        /// byte result = ((byte)150).GetRandom((byte)50);
+        /// </code>
+        /// </example>
         public static byte GetRandom(this byte maxValue, byte minValue)
         {
             return Convert.ToByte(RandomNumberGenerator.Create().Next(minValue, maxValue));
@@ -51,6 +63,15 @@ namespace TestHelperExtensions
         /// <param name="minValue">the inclusive minimum byte value for the random number</param>
         /// <param name="length">The length of the intended enumerable</param>
         /// <returns>A random IEnumerable of type byte</returns>
+        /// <example>
+        /// <code>
+        /// // Get a collection of 10 random bytes between 0 (inclusive) and 100 (exclusive)
+        /// IEnumerable&lt;byte&gt; bytes = ((byte)100).GetRandomEnumerable(length: 10);
+        ///
+        /// // Get a collection of random bytes between 20 (inclusive) and 80 (exclusive)
+        /// IEnumerable&lt;byte&gt; bytes = ((byte)80).GetRandomEnumerable(minValue: (byte)20, length: 5);
+        /// </code>
+        /// </example>
         public static IEnumerable<byte> GetRandomEnumerable(this byte maxValue, byte minValue = 0, int length = 0)
         {
             var result = new List<byte>();
