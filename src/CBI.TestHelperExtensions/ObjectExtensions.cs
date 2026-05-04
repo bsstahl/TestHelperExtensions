@@ -20,6 +20,13 @@ namespace TestHelperExtensions
         /// </summary>
         /// <param name="value">An object that implements the System.IConvertible interface.</param>
         /// <returns>A 32-bit signed integer that is equivalent to value, or zero if value is null.</returns>
+        /// <example>
+        /// <code>
+        /// // Convert a database result object to an integer
+        /// object dbValue = GetValueFromDatabase();
+        /// int result = dbValue.ToInt32();
+        /// </code>
+        /// </example>
         public static int ToInt32(this object value)
         {
             return Convert.ToInt32(value, System.Globalization.CultureInfo.CurrentCulture);
@@ -31,6 +38,13 @@ namespace TestHelperExtensions
         /// </summary>
         /// <param name="value">An object that implements the System.IConvertible interface.</param>
         /// <returns>A 64-bit signed integer that is equivalent to value, or zero if value is null.</returns>
+        /// <example>
+        /// <code>
+        /// // Convert a database result object to a long integer
+        /// object dbValue = GetValueFromDatabase();
+        /// long result = dbValue.ToInt64();
+        /// </code>
+        /// </example>
         public static Int64 ToInt64(this object value)
         {
             return Convert.ToInt64(value, System.Globalization.CultureInfo.CurrentCulture);
@@ -45,6 +59,13 @@ namespace TestHelperExtensions
         /// <returns>A nullable 64-bit signed integer that is equivalent to value, or null if value is null.</returns>
         /// <remarks>Unfortunately, it appears that DBNull.Value is not available 
         /// in some of the portable frameworks so it cannot be tested for here.</remarks>
+        /// <example>
+        /// <code>
+        /// // Convert a potentially null database value to a nullable long
+        /// object dbValue = GetNullableValueFromDatabase();
+        /// long? result = dbValue.ToNullableInt64(); // returns null if dbValue is null
+        /// </code>
+        /// </example>
         public static Int64? ToNullableInt64(this object value)
         {
             Int64? result = null;
@@ -64,6 +85,13 @@ namespace TestHelperExtensions
         /// The date and time equivalent of the value of value, or the date and time equivalent
         /// of System.DateTime.MinValue if value is null.
         /// </returns>
+        /// <example>
+        /// <code>
+        /// // Convert a database result object to a DateTime
+        /// object dbValue = GetValueFromDatabase();
+        /// DateTime result = dbValue.ToDateTime();
+        /// </code>
+        /// </example>
         public static DateTime ToDateTime(this object value)
         {
             return Convert.ToDateTime(value, System.Globalization.CultureInfo.CurrentCulture);
@@ -79,6 +107,13 @@ namespace TestHelperExtensions
         /// </returns>
         /// <remarks>Unfortunately, DBNull.Value is apparently not available 
         /// in some of the portable frameworks so it cannot be tested for here.</remarks>
+        /// <example>
+        /// <code>
+        /// // Convert a potentially null database value to a nullable DateTime
+        /// object dbValue = GetNullableValueFromDatabase();
+        /// DateTime? result = dbValue.ToNullableDateTime(); // returns null if dbValue is null
+        /// </code>
+        /// </example>
         public static DateTime? ToNullableDateTime(this object value)
         {
             DateTime? result = null;

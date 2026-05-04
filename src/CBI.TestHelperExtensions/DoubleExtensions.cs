@@ -20,6 +20,12 @@ namespace TestHelperExtensions
         /// </summary>
         /// <param name="maxValue">The non-inclusive maximum value for the random number</param>
         /// <returns>A random double less than the maxValue and greater than or equal to zero.</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random double between 0.0 (inclusive) and 1.0 (exclusive)
+        /// double result = 1.0.GetRandom();
+        /// </code>
+        /// </example>
         public static double GetRandom(this double maxValue)
         {
             return maxValue.GetRandom(0);
@@ -31,6 +37,12 @@ namespace TestHelperExtensions
         /// <param name="maxValue">The non-inclusive maximum value for the random number</param>
         /// <param name="minValue">The inclusive minimum value for the random number</param>
         /// <returns>A random double in the specified range</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random double between 2.5 (inclusive) and 7.5 (exclusive)
+        /// double result = 7.5.GetRandom(2.5);
+        /// </code>
+        /// </example>
         public static double GetRandom(this double maxValue, double minValue)
         {
             if (minValue > maxValue)
@@ -48,6 +60,15 @@ namespace TestHelperExtensions
         /// <param name="minValue">The lower bound of the range</param>
         /// <param name="maxValue">The upper bound of the range</param>
         /// <returns>True if the difference between the two values is greater than maxRange, False otherwise.</returns>
+        /// <example>
+        /// <code>
+        /// // Verify that the tested range does not exceed an allowed maximum range
+        /// double allowedRange = 100.0;
+        /// double lowerBound = 10.0;
+        /// double upperBound = 90.0;
+        /// bool isTooWide = allowedRange.IsWiderThanRange(lowerBound, upperBound); // false
+        /// </code>
+        /// </example>
         public static bool IsWiderThanRange(this double maxRange, double minValue, double maxValue)
         {
             double range = Math.Abs(checked(maxValue - minValue));

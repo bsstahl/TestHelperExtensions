@@ -19,6 +19,11 @@ namespace TestHelperExtensions
         /// the time we have reached this method, the type has already been determined by
         /// the runtime and the parameter is no longer needed.</param>
         /// <returns>A boolean containing a random value.</returns>
+        /// <example>
+        /// <code>
+        /// bool randomBool = false.GetRandom();
+        /// </code>
+        /// </example>
         public static bool GetRandom(this bool ignored)
         {
             double value = RandomNumberGenerator.Create().NextDouble();

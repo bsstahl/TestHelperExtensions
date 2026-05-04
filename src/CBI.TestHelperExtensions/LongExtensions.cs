@@ -19,6 +19,12 @@ namespace TestHelperExtensions
         /// </summary>
         /// <param name="maxValue">The non-inclusive maximum integer value for the random number</param>
         /// <returns>A random integer</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random long between 0 (inclusive) and 1000000 (exclusive)
+        /// long result = 1000000L.GetRandom();
+        /// </code>
+        /// </example>
         public static long GetRandom(this long maxValue)
         {
             return maxValue.GetRandom(0);
@@ -30,6 +36,12 @@ namespace TestHelperExtensions
         /// <param name="maxValue">The non-inclusive maximum integer value for the random number</param>
         /// <param name="minValue">the inclusive minimum integer value for the random number</param>
         /// <returns>A random integer</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random long between 100 (inclusive) and 500 (exclusive)
+        /// long result = 500L.GetRandom(100L);
+        /// </code>
+        /// </example>
         public static long GetRandom(this long maxValue, long minValue)
         {
             if (minValue >= maxValue)

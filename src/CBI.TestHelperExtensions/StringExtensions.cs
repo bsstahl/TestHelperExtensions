@@ -33,6 +33,12 @@ namespace TestHelperExtensions
         /// the time we have reached this method, the type has already been determined by
         /// the runtime and the parameter is no longer needed.</param>
         /// <returns>The resulting random string value.</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random 8-character string for use as test data
+        /// string randomValue = string.Empty.GetRandom();
+        /// </code>
+        /// </example>
         public static string GetRandom(this string ignored)
         {
             return string.Empty.GetRandom(_defaultLength);
@@ -46,6 +52,12 @@ namespace TestHelperExtensions
         /// the runtime and the parameter is no longer needed.</param>
         /// <param name="length">The length of the desired random string.</param>
         /// <returns>The resulting random string value.</returns>
+        /// <example>
+        /// <code>
+        /// // Get a random 16-character string for use as a test token
+        /// string token = string.Empty.GetRandom(16);
+        /// </code>
+        /// </example>
         public static string GetRandom(this string ignored, int length)
         {
             if (length < 1)
@@ -67,6 +79,12 @@ namespace TestHelperExtensions
         /// the time we have reached this method, the type has already been determined by
         /// the runtime and the parameter is no longer needed.</param>
         /// <returns>The resulting random US phone number.</returns>
+        /// <example>
+        /// <code>
+        /// // Generate a random US phone number for test data (e.g. "555-867-5309")
+        /// string phoneNumber = string.Empty.GetRandomUSPhoneNumber();
+        /// </code>
+        /// </example>
         public static string GetRandomUSPhoneNumber(this string ignored)
         {
             return string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}-{1}-{2}", 999.GetRandom(211), 999.GetRandom(111), 9999.GetRandom(1111));
@@ -79,6 +97,12 @@ namespace TestHelperExtensions
         /// the time we have reached this method, the type has already been determined by
         /// the runtime and the parameter is no longer needed.</param>
         /// <returns>The resulting random email address.</returns>
+        /// <example>
+        /// <code>
+        /// // Generate a random email address for test data (e.g. "abc123@example.com")
+        /// string email = string.Empty.GetRandomEmailAddress();
+        /// </code>
+        /// </example>
         public static string GetRandomEmailAddress(this string _)
         {
             string[] tlds = new string[] { "com", "net", "org", "int", "edu", "mil", "gov", "me", "ru", "au", "cz", "gb", "hk", "it", "jp" };
@@ -98,6 +122,12 @@ namespace TestHelperExtensions
         /// <remarks>Vehicle Identification Numbers (VINs) are 17 characters long and are used to uniquely identify motor vehicles.
         /// This method returns a well-formed VIN, but one that is probably not valid for any particular vehicle type.
         /// </remarks>
+        /// <example>
+        /// <code>
+        /// // Generate a random 17-character VIN for test data
+        /// string vin = string.Empty.GetRandomVIN();
+        /// </code>
+        /// </example>
         public static string GetRandomVIN(this string _)
         {
             var (prefix, suffix) = GenerateRandomVIN();
@@ -111,6 +141,12 @@ namespace TestHelperExtensions
         /// the time we have reached this method, the type has already been determined by
         /// the runtime and the parameter is no longer needed.</param>
         /// <returns>The resulting random US street address.</returns>
+        /// <example>
+        /// <code>
+        /// // Generate a random US street address for test data (e.g. "1234 Main St" or "5678 Elm Ave Apt 12")
+        /// string address = string.Empty.GetRandomUSAddress();
+        /// </code>
+        /// </example>
         public static string GetRandomUSAddress(this string _)
         {
             string number = 99999.GetRandom(10).ToString();
@@ -130,6 +166,16 @@ namespace TestHelperExtensions
         /// <returns>The resulting System.IO.Stream data type.</returns>
         /// <remarks>System.IO.Stream objects implement IDisposable and therefore must
         /// be disposed of once they are no longer needed to avoid memory leaks.</remarks>
+        /// <example>
+        /// <code>
+        /// // Convert an XML string into a stream for use with an XmlReader
+        /// string xml = "&lt;root&gt;&lt;item&gt;value&lt;/item&gt;&lt;/root&gt;";
+        /// using (System.IO.Stream stream = xml.ToStream())
+        /// {
+        ///     // use the stream
+        /// }
+        /// </code>
+        /// </example>
         public static System.IO.Stream ToStream(this string value)
         {
             var buffer = new System.IO.MemoryStream();
@@ -147,6 +193,13 @@ namespace TestHelperExtensions
         /// <param name="value">The string to search for a match.</param>
         /// <param name="pattern">The regular expression pattern to match.</param>
         /// <returns>Returns true if the regular expression finds a match, False if no match is found.</returns>
+        /// <example>
+        /// <code>
+        /// // Verify that a generated phone number matches the expected format
+        /// string phoneNumber = string.Empty.GetRandomUSPhoneNumber();
+        /// Assert.IsTrue(phoneNumber.RegexMatch(@"^\d{3}-\d{3}-\d{4}$"));
+        /// </code>
+        /// </example>
         public static bool RegexMatch(this string value, string pattern)
         {
             return Regex.IsMatch(value, pattern);
@@ -158,6 +211,12 @@ namespace TestHelperExtensions
         /// <param name="value">The string to be repeated</param>
         /// <param name="numberOfRepetitions">The number of times to repeat the string</param>
         /// <returns>A string that represents the original string repeated the proper number of times</returns>
+        /// <example>
+        /// <code>
+        /// // Build a string by repeating "ab" three times: "ababab"
+        /// string result = "ab".Repeat(3);
+        /// </code>
+        /// </example>
         public static string Repeat(this string value, int numberOfRepetitions)
         {
             return value.Repeat(numberOfRepetitions, null);
@@ -173,6 +232,12 @@ namespace TestHelperExtensions
         /// original value in the output</param>
         /// <returns>A string that represents the original string repeated the 
         /// proper number of times, separated by the separator string</returns>
+        /// <example>
+        /// <code>
+        /// // Build a comma-separated list by repeating "item" four times: "item,item,item,item"
+        /// string result = "item".Repeat(4, ",");
+        /// </code>
+        /// </example>
         public static string Repeat(this string value, int numberOfRepetitions, string separator)
         {
             if (value is null)
@@ -196,6 +261,15 @@ namespace TestHelperExtensions
         /// <returns>True if the value is recognizable as a boolean true value, 
         /// false if it is recognized as a boolean false value.</returns>
         /// <exception cref="ArgumentException">Thrown if the value is not recognizable as a boolean true or false</exception>
+        /// <example>
+        /// <code>
+        /// // Convert various string representations to bool
+        /// bool result1 = "true".ToBool();  // true
+        /// bool result2 = "yes".ToBool();   // true
+        /// bool result3 = "0".ToBool();     // false
+        /// bool result4 = "off".ToBool();   // false
+        /// </code>
+        /// </example>
         public static bool ToBool(this string value)
         {
             return value.IsValidBool()
@@ -208,6 +282,16 @@ namespace TestHelperExtensions
         /// </summary>
         /// <param name="value">The value being tested</param>
         /// <returns>True if the value is recognizable as a boolean, otherwise false</returns>
+        /// <example>
+        /// <code>
+        /// // Validate a configuration value before converting it to bool
+        /// string configValue = GetConfigurationValue();
+        /// if (configValue.IsValidBool())
+        /// {
+        ///     bool setting = configValue.ToBool();
+        /// }
+        /// </code>
+        /// </example>
         public static bool IsValidBool(this string value)
         {
             var result = !string.IsNullOrWhiteSpace(value) && 
